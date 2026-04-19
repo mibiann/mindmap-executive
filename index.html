@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ôn Tập Sơ Đồ Tư Duy Chuẩn | Vmindsports</title>
+<meta name="description" content="Ôn tập Phương pháp Sơ đồ Tư duy chuẩn Tony Buzan. 5 bài học tương tác, thực hành, chứng chỉ hoàn thành — Độc quyền từ Vmindsports." />
+<meta property="og:title" content="Ôn Tập Sơ Đồ Tư Duy Chuẩn — Vmindsports" />
+<meta property="og:description" content="Ôn tập Phương pháp Sơ đồ Tư duy chuẩn Tony Buzan. 5 bài tương tác + Chứng chỉ hoàn thành. Độc quyền Vmindsports." />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Nunito','system-ui','sans-serif'], display: ['Space Grotesk','system-ui','sans-serif'] },
+      colors: {
+        bee: { 50:'#fffbeb', 100:'#fef3c7', 200:'#fde68a', 300:'#fcd34d', 400:'#fbbf24', 500:'#FFB300', 600:'#d97706', 700:'#b45309' },
+        ocean: { 50:'#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 300:'#93c5fd', 400:'#60a5fa', 500:'#1E88E5', 600:'#1565C0', 700:'#0d47a1' },
+        branch: { red:'#E53935', blue:'#1E88E5', orange:'#FB8C00', green:'#43A047', pink:'#D81B60', purple:'#8E24AA' },
+        mint: { 400:'#34d399', 500:'#10b981', 600:'#059669' },
+        coral: { 400:'#fb7185', 500:'#f43f5e' },
+      }
+    }
+  }
+}
+</script>
+<style>
+* { box-sizing: border-box; }
+body { font-family: 'Nunito', system-ui, sans-serif; }
+.fade-in { animation: fadeIn 0.5s cubic-bezier(0.4,0,0.2,1); }
+@keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.slide-up { animation: slideUp 0.6s cubic-bezier(0.4,0,0.2,1); }
+@keyframes slideUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+.bounce-in { animation: bounceIn 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); }
+@keyframes bounceIn { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
+.float { animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+.wiggle:hover { animation: wiggle 0.4s ease-in-out; }
+@keyframes wiggle { 0%,100% { transform:rotate(0); } 25% { transform:rotate(-3deg); } 75% { transform:rotate(3deg); } }
+.pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+@keyframes pulseGlow { 0%,100% { box-shadow:0 0 0 0 rgba(255,179,0,0.4); } 50% { box-shadow:0 0 0 14px rgba(255,179,0,0); } }
+.card-hover { transition: all 0.25s cubic-bezier(0.4,0,0.2,1); }
+.card-hover:hover { transform:translateY(-4px) scale(1.01); box-shadow:0 12px 32px rgba(30,136,229,0.12); }
+.progress-bar { transition: width 0.6s cubic-bezier(0.4,0,0.2,1); }
+.drag-over { outline:3px dashed #FFB300; outline-offset:-3px; background:#fffbeb; }
+.fun-bg { background: linear-gradient(135deg, #fffbeb 0%, #eff6ff 50%, #fffbeb 100%); }
+.hero-gradient { background: linear-gradient(135deg, #FFB300 0%, #1E88E5 50%, #FFB300 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.glow-border { background: linear-gradient(90deg, #FFB300, #1E88E5, #FB8C00, #43A047, #FFB300); background-size:200% 200%; animation:glowBorder 4s ease infinite; border-radius:1rem; padding:3px; }
+@keyframes glowBorder { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+@media print { .no-print { display:none !important; } .print-only { display:block !important; } }
+.print-only { display:none; }
+</style>
+</head>
+<body class="bg-white min-h-screen">
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useCallback, useMemo, useRef } = React;
+
+// ============================================================
+// SOUND MANAGER
+// ============================================================
+const SoundManager = {
+  ctx: null, sfxEnabled: true,
+  init() { if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); const s = localStorage.getItem('mm-sfx'); if (s !== null) this.sfxEnabled = s === 'true'; },
+  _tone(freq, dur, type='sine', vol=0.15) { if (!this.sfxEnabled || !this.ctx) return; try { this.ctx.resume(); } catch(e) {} const o = this.ctx.createOscillator(); const g = this.ctx.createGain(); o.type=type; o.frequency.value=freq; g.gain.setValueAtTime(vol,this.ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001,this.ctx.currentTime+dur); o.connect(g); g.connect(this.ctx.destination); o.start(); o.stop(this.ctx.currentTime+dur); },
+  playClick() { this._tone(800,0.08,'sine',0.08); },
+  playCorrect() { this._tone(523,0.15,'sine',0.12); setTimeout(()=>this._tone(784,0.2,'sine',0.12),120); },
+  playWrong() { this._tone(330,0.15,'sine',0.08); setTimeout(()=>this._tone(262,0.2,'sine',0.08),120); },
+  playComplete() { [523,659,784,1047].forEach((f,i)=>{ setTimeout(()=>this._tone(f,0.25,'sine',0.1),i*100); }); },
+  playLevelUp() { [523,659,784,1047,1319].forEach((f,i)=>{ setTimeout(()=>this._tone(f,0.3,'triangle',0.12),i*120); }); },
+  playCourseComplete() { if(!this.sfxEnabled||!this.ctx)return; try{this.ctx.resume();}catch(e){} [523,659,784,1047,1319,1568].forEach((f,i)=>{setTimeout(()=>this._tone(f,0.35,'triangle',0.12),i*110);}); setTimeout(()=>{[1047,1319,1568].forEach(f=>this._tone(f,0.6,'sine',0.08));},750); },
+  toggleSfx() { this.sfxEnabled=!this.sfxEnabled; localStorage.setItem('mm-sfx',this.sfxEnabled); if(this.sfxEnabled) this.playClick(); return this.sfxEnabled; }
+};
+document.addEventListener('click', function init() { SoundManager.init(); document.removeEventListener('click', init); }, { once: true });
+
+// ============================================================
+// DATA
+// ============================================================
+const LEVELS = [
+  { id:'therapy', icon:'🧠', name:'Chuyên gia Nghiên cứu & Trị liệu Tâm lý', desc:'Hệ thống hóa phác đồ, hồ sơ thân chủ và nghiên cứu chuyên sâu', color:'from-bee-500 to-ocean-500' },
+  { id:'management', icon:'💼', name:'Chuyên gia Quản lý & Chiến lược', desc:'Lập kế hoạch, vận hành tổ chức và ra quyết định hiệu quả', color:'from-blue-500 to-cyan-500' },
+  { id:'education', icon:'📚', name:'Chuyên gia Đào tạo & Giảng dạy', desc:'Thiết kế giáo án, truyền cảm hứng và hệ thống kiến thức', color:'from-emerald-500 to-teal-500' },
+  { id:'standard', icon:'🌟', name:'Chuyên gia Ứng dụng Sơ Đồ Tư Duy Chuẩn', desc:'Ứng dụng Sơ đồ Tư duy chuẩn cho mục tiêu cá nhân và gia đình', color:'from-amber-500 to-orange-500' },
+];
+
+const MODULES = [
+  {
+    id:1, title:'Mind Map là gì?', subtitle:'Từ ghi chép truyền thống đến tư duy tỏa tia',
+    icon:'🔭', duration:'12 phút', color:'bee',
+    content: {
+      imageUrl: 'images/MM_Loi_ich_doc_sach.png',
+      intro: "Vmindsports rất trân trọng chào đón các anh chị chuyên gia. Anh chị có để ý rằng não bộ con người hoạt động theo dạng tỏa tia thay vì đường thẳng không? Khi nghe từ \"Quả táo\", ta liên tưởng ngay đến màu đỏ, vị ngọt hay sức khỏe.\n\nMind Map (Bản đồ Tư duy) được phát triển dựa trên chính cơ chế tự nhiên này. Thay vì ghi chép theo các dòng kẻ từ trên xuống, Mind Map cho phép anh chị tổ chức thông tin theo một mạng lưới sinh động, giúp bộ não làm việc trong trạng thái thoải mái và hiệu quả triệt để.",
+      keyPoints: [
+        { title:'Ghi chép truyền thống và Tư duy tỏa tia', text:'Cách ghi chép quen thuộc (dùng số 1, 2, 3) chủ yếu sử dụng bán cầu não trái. Mind Map tích hợp tuyệt vời cả hai bán cầu: não trái xử lý logic, não phải cảm thụ màu sắc và không gian, giúp khả năng lưu trữ thông tin tăng lên đáng kể.' },
+        { title:'Nền tảng chuẩn quốc tế', text:'Được Tony Buzan đúc kết từ những năm 1970, Mind Map hiện là công cụ tư duy của hơn 250 triệu người mang lại năng suất đột phá. Vmindsports vô cùng tự hào khi đồng hành cùng anh chị áp dụng những bộ quy chuẩn khắt khe nhất của Thể thao Tư duy.' },
+        { title:'Ứng dụng cho công việc chuyên môn', text:'1. HỆ THỐNG HÓA: Sắp xếp hồ sơ thân chủ, tài liệu nghiên cứu\n2. CHIẾN LƯỢC: Lên kế hoạch dự án, phân bổ KPI\n3. PHÂN TÍCH: Bóc tách nguyên nhân và định hướng giải pháp\n4. ĐÀO TẠO: Thiết kế giáo trình dễ hiểu và truyền cảm hứng\n5. THUYẾT TRÌNH: Báo cáo cô đọng trên một trang duy nhất' },
+      ],
+      levelExamples: {
+        beginner:'Hãy thử thay thế danh sách 10 việc cần làm hôm nay bằng một hình vẽ ở giữa và các nhánh tỏa ra xung quanh. Anh chị sẽ thấy bộ não ghi nhận thông tin nhanh hơn rất nhiều.',
+        intermediate:'Nếu anh chị đã vẽ Mind Map, việc tuân thủ 5 Luật chuẩn quốc tế mà Vmindsports sắp chia sẻ sẽ giúp anh chị tối ưu hóa công cụ này, tránh tình trạng rối mắt khi lượng thông tin quá lớn.',
+        advanced:'Ở góc độ chuyên gia, anh chị có thể dùng Mind Map trực tiếp trên bảng trắng để dẫn dắt một phiên họp nhóm. Dòng chảy ý tưởng của mọi người sẽ được cấu trúc hóa ngay lập tức.',
+      },
+    },
+    exercise: {
+      type:'identify-system',
+      title:'Phân biệt: Tuyến tính hay Mind Map?',
+      instructions:'Mời anh chị phân loại các cách tiếp cận sau đây thuộc nhóm Ghi chép Tuyến tính hay Tư duy Mind Map.',
+      items: [
+        { id:'e1', text:'Viết dàn ý I. A. B. theo thứ tự từ trên xuống', answer:'linear' },
+        { id:'e2', text:'Đặt chủ đề ở không gian trung tâm, tỏa nhánh ra xung quanh', answer:'mindmap' },
+        { id:'e3', text:'Ghi chú theo dòng đơn thuần với một màu mực', answer:'linear' },
+        { id:'e4', text:'Sử dụng linh hoạt màu sắc và từ khóa mấu chốt', answer:'mindmap' },
+        { id:'e5', text:'Khai triển thông tin theo chiều kim đồng hồ tự nhiên', answer:'mindmap' },
+        { id:'e6', text:'Cố gắng viết những câu rất dài để không sót ý', answer:'linear' },
+      ],
+    },
+    assessment: {
+      title:'Thử thách: Nền tảng Mind Map',
+      questions: [
+        { q:'Yếu tố nào giúp Mind Map kích hoạt não bộ toàn diện hơn?', opts:['Sự kết hợp hài hòa giữa hình ảnh, màu sắc và từ khóa ngắn gọn','Sử dụng giấy khổ lớn để viết được nhiều chữ hơn','Lược bỏ hoàn toàn chữ viết, chỉ dùng ký hiệu','Giới hạn số lượng ý tưởng trên một trang'], correct:0 },
+        { q:'Đâu KHÔNG phải là thế mạnh hệ thống của Mind Map?', opts:['Sắp xếp chiến lược dài hạn','Ghi chép sổ kế toán thu chi chi tiết hàng ngày','Tóm tắt nội dung một cuốn sách dày','Động não tìm giải pháp cho tổ chức'], correct:1 },
+        { q:'Điểm tinh túy nhất của Mind Map chuẩn là:', opts:['Hệ thống hóa thông tin theo dạng lưới tỏa ra từ hình ảnh trung tâm','Quy định sử dụng các loại bút màu đắt tiền','Chỉ ứng dụng cho học sinh, sinh viên ôn tập','Vẽ các đường nhánh thẳng tắp như thước kẻ'], correct:0 },
+      ],
+    },
+  },
+  {
+    id:2, title:'Nền Tảng 5 Luật Chuẩn', subtitle:'Quy tắc thiết kế bản đồ tư duy',
+    icon:'📏', duration:'15 phút', color:'ocean',
+    content: {
+      imageUrl: 'images/MM_5_luat.png',
+      intro: "Mind Map mang đến sự tự do sáng tạo, nhưng để đạt được độ chuẩn hóa cao và phát huy tối đa sức mạnh ghi nhớ, việc tuân thủ 5 Luật cốt lõi là vô cùng cần thiết. Mỗi quy tắc đều được Tony Buzan xây dựng dựa trên sự thấu hiểu sâu sắc về cách thức thu nạp của não bộ.\n\nVmindsports tin rằng, khi các anh chị chuyên gia nắm vững 5 chìa khóa này, mọi bản thảo chiến lược hay bài học phức tạp đều sẽ trở nên sắc bén và minh bạch.",
+      keyPoints: [
+        { title:'Quy tắc 1: NHÁNH TỎA', text:'• Nhánh chính (chạm hình trung tâm) cần có phần gốc dày và thon dần về ngọn, mềm mại như sừng trâu\n• Chiều dài của nhánh nên vừa vặn với độ dài của từ khóa\n• Mỗi nhánh chính ẩn chứa những nét hoa văn tinh tế cùng tông màu\n• Luôn xuất phát nhánh đầu tiên từ vị trí 1 giờ\n• Tính kết nối là liên tục, không có nhánh đứt gãy' },
+        { title:'Quy tắc 2: TỪ KHÓA MẤU CHỐT', text:'• Tối ưu nhất: Mỗi nhánh duy nhất 1 từ khóa (tránh viết câu dài)\n• Đề xuất VIẾT IN HOA để não bộ bắt nét chữ rõ ràng nhất\n• Cấp độ từ khóa giảm dần kích thước: nhánh chính to nhất, các nhánh phụ nhỏ hơn\n• Từ khóa và icon minh họa luôn được nâng đỡ bởi đường nhánh, không lơ lửng' },
+        { title:'Quy tắc 3: SẮC THÁI MÀU', text:'• Hình trung tâm phối hợp từ 4 màu sắc trở lên để khơi gợi thị giác\n• Toàn bộ một cung nhánh (viền, hoa văn, nhánh phụ, từ khóa) duy trì sự đồng nhất về tông màu\n• Sắp xếp màu sắc luân phiên giữa tông Nóng (Đỏ, Cam, Hồng) và Lạnh (Xanh lá, Xanh dương, Tím)' },
+        { title:'Quy tắc 4: HÌNH ẢNH TRỰC QUAN', text:'• Hình trung tâm là linh hồn, cần giàu tính biểu tượng, hạn chế tối đa việc lồng ghép chữ\n• Những icon nhỏ minh họa trên từ khóa giúp kích thích trí liên tưởng\n• Vmindsports luôn khuyến khích anh chị thả lỏng tay để vẽ một cách vui tươi nhất' },
+        { title:'Quy tắc 5: BỐ CỤC KHÔNG GIAN', text:'• Triển khai các nhánh theo chiều kim đồng hồ mang lại cảm giác xuôi chiều tự nhiên\n• Phân bổ không gian cân bằng trên trang giấy\n• Mũi tên nét đứt dùng để kết nối các thông tin có liên quan ở các nhánh khác nhau' },
+      ],
+      levelExamples: {
+        beginner:'Với các anh chị mới, Vmindsports gợi ý hãy thả lỏng và tập trung vào 3 điều cơ bản: Hình trung tâm rực rỡ, Nhánh cong tự nhiên, và Từ khóa viết in hoa.',
+        intermediate:'Để nâng tầm chuẩn hóa, anh chị hãy lưu tâm thêm việc đặt từ khóa và hình ảnh nằm vững vàng trên nhánh (không để lơ lửng), cũng như bổ sung hoa văn cho nhánh chính.',
+        advanced:'Sự khác biệt của một chuyên gia nằm ở tư duy cốt lõi về sự liên kết. Việc tạo ra các mũi tên kết nối chéo giữa các nhánh giúp nhìn thấu những mối quan hệ logic ẩn sâu trong toàn bộ kế hoạch.',
+      },
+    },
+    exercise: {
+      type:'identify-system',
+      title:'Đánh giá theo chuẩn Quốc tế',
+      instructions:'Anh chị đánh giá các thao tác sau là ĐÚNG hay SAI so với tiêu chuẩn Mind Map.',
+      items: [
+        { id:'r1', text:'Viết cả câu dài trên một đường nhánh duy nhất', answer:'sai' },
+        { id:'r2', text:'Nhánh chính cong thon tự nhiên, bên trong có hoa văn cùng tông màu', answer:'dung' },
+        { id:'r3', text:'Chỉ viết chữ làm hình trung tâm thay vì dùng hình vẽ minh họa', answer:'sai' },
+        { id:'r4', text:'Từ khóa in hoa nằm trên nhánh, biểu tượng có nét kẻ nâng đỡ', answer:'dung' },
+        { id:'r5', text:'Tất cả các nhánh trên bản vẽ đều dùng chung một màu mực xanh', answer:'sai' },
+        { id:'r6', text:'Nhánh đầu tiên khởi đầu ở góc 1 giờ, xoay theo vòng kim đồng hồ', answer:'dung' },
+        { id:'r7', text:'Kẻ các nhánh bằng thước cho thật thẳng và vuông góc', answer:'sai' },
+        { id:'r8', text:'Sử dụng màu xen kẽ Nóng và Lạnh cho các nhánh liền kề', answer:'dung' },
+      ],
+    },
+    assessment: {
+      title:'Thử thách: Am hiểu 5 Luật',
+      questions: [
+        { q:'Theo tiêu chuẩn Vmindsports, nhánh chính cần thể hiện thế nào mới đạt?', opts:['Thẳng hàng như sơ đồ cây thông thường','Gốc dày chạm tâm, thuôn dần về ngọn với nét cong tự nhiên','Đường kẻ thanh mảnh y hệt các nhánh phụ','Vẽ theo những nét đứt quãng'], correct:1 },
+        { q:'Để tối ưu hình trung tâm (khổ giấy A3), anh chị nên:', opts:['Viết tên tiêu đề rõ to lên giữa trang','Sáng tạo một hình ảnh 4 màu trở lên và hạn chế dùng chữ','Chỉ dùng một vòng tròn màu đen đơn giản','Đảm bảo hình ảnh phải cực kỳ chân thực như chụp ảnh'], correct:1 },
+        { q:'Yêu cầu tối quan trọng khi đặt Hình ảnh minh họa (Icon) là gì?', opts:['Phải vẽ phức tạp mất nhiều thời gian','Luôn được nâng đỡ bởi nét nhánh, tuyệt đối không lơ lửng ngoài không gian','Chỉ cắt dán từ báo chí, không được vẽ tay','Kích thước phải lớn hơn hình trung tâm'], correct:1 },
+      ],
+    },
+  },
+  {
+    id:3, title:'Nghệ Thuật Hình Trung Tâm', subtitle:'Khai mở tư duy từ tâm điểm',
+    icon:'🎨', duration:'15 phút', color:'bee',
+    content: {
+      intro: "Hình trung tâm và nhánh chính chính là chiếc chìa khóa vàng mở ra toàn bộ sức sống cho Mind Map. Vmindsports tin rằng, một hình ảnh trung tâm vui tươi, giàu sức gợi sẽ truyền cảm hứng làm việc cho anh chị ngay lập tức.\n\nThay vì lo lắng mình không rành hội họa, hãy xem mỗi nét vẽ là một trò chơi thị giác thú vị giúp não bộ sạc đầy năng lượng tích cực.",
+      keyPoints: [
+        { title:'Hình trung tâm: Trái tim của bài trình bày', text:'• Đặt ngay ngắn chính giữa trang giấy định dạng ngang (Landscape)\n• Kích thước tỷ lệ chuẩn: khoanh vùng khoảng 9.5cm cho giấy A3\n• Tự tin phối trộn từ 4 màu sắc trở lên\n• Dùng biểu tượng thay lời muốn nói (Ví dụ: Kế hoạch kinh doanh vẽ hình chiếc khiên và cánh chim)\n• Hãy để sự vui tươi kích hoạt sự liên tưởng không giới hạn' },
+        { title:'Nhánh cong: Phương thức kết nối tự nhiên', text:'• Gốc nhánh tỏa ra trực tiếp và tiếp xúc khít với hình trung tâm\n• Đường cong uốn lượn uyển chuyển mô phỏng các cấu trúc trong thiên nhiên\n• Tông màu dịu nhẹ tô đầy phần thân nhánh\n• Thêm thắt hoa văn họa tiết bên trong để thể hiện cá tính riêng của người vẽ' },
+        { title:'Nguyên lý dải màu hài hòa', text:'Bố trí chuỗi màu sắc luân phiên để chống nhàm chán thị giác:\n\n🔴 Nhánh 1 (1h): Sắc Đỏ (Tông Nóng)\n🔵 Nhánh 2 (3h): Xanh dương (Tông Lạnh)\n🟠 Nhánh 3 (5h): Cam ấm (Tông Nóng)\n🟢 Nhánh 4 (7h): Xanh lá (Tông Lạnh)\n🟤 Nhánh 5 (10h): Nâu (Tông Nóng)\n🟣 Nhánh 6 (11h): Tím (Tông Lạnh)\n\nỨng dụng màu sắc tinh tế làm bản phân tích của anh chị thêm phần đẳng cấp và dễ nhìn.' },
+      ],
+      levelExamples: {
+        beginner:'Nếu anh chị thấy phân vân khi tạo hình trung tâm, hãy bắt đầu bằng một đám mây, một bông hoa, hoặc một cuốn sổ thật hồn nhiên. Não bộ rất thích sự giản dị và chân thành.',
+        intermediate:'Anh chị hãy kiểm tra lại cấu trúc: Phần gốc của nhánh chính đã thật sự chạm sát vào viền hình trung tâm chưa? Chút tỉ mỉ này làm tăng tính vững chãi cho toàn bố cục.',
+        advanced:'Đối với một bản báo cáo chuyên nghiệp, hoa văn bên trong nhánh chính có thể là những đường thiết kế hình học, hoặc các họa tiết hiện đại tối giản. Nó đóng vai trò như một chữ ký định hình phong thái lãnh đạo của anh chị.',
+      },
+    },
+    exercise: {
+      type:'color-matching',
+      title:'Trải nghiệm Phối màu chuẩn',
+      instructions:'(Ví dụ nhánh đầu tiên hướng 1h anh chị đã tô màu 🔴 Đỏ - Tông Nóng). Dựa vào nguyên tắc luân phiên thay đổi Nóng/Lạnh, mời anh chị chọn màu chuẩn cho các nhánh tiếp theo.',
+      items: [
+        { id:'c2', position:'Kế tiếp Nhánh 2 (Hướng 3h)', answer:'blue', options:['red','blue','brown','orange'] },
+        { id:'c3', position:'Phát triển Nhánh 3 (Hướng 5h)', answer:'orange', options:['green','blue','orange','purple'] },
+        { id:'c4', position:'Mở rộng Nhánh 4 (Hướng 7h)', answer:'green', options:['red','green','orange','brown'] },
+        { id:'c5', position:'Lan tỏa Nhánh 5 (Hướng 9-10h)', answer:'brown', options:['blue','green','brown','orange'] },
+      ],
+    },
+    assessment: {
+      title:'Thử thách: Hình khối và Nét lượn',
+      questions: [
+        { q:'Để tâm não có điểm tựa vững vàng, hình trung tâm cần:', opts:['Hạn chế màu sắc để giữ nét trang nghiêm','Thật sự là một hình vẽ sống động với ít nhất 4 hệ màu','Vẽ lệch sang cạnh trái khổ giấy','Chèn kín chữ cái để biểu đạt ý nghĩa'], correct:1 },
+        { q:'Sự khác biệt của nhánh Mind Map Vmindsports là:', opts:['Sử dụng hoàn toàn bằng đường thẳng để tạo khối chữ nhật','Nét uốn tự nhiên, thuôn nhọn thanh mảnh dần về ngọn','Vẽ thành hình dạng sắc cạnh','Càng xa trung tâm nhánh càng phình to ra'], correct:1 },
+        { q:'Sắp xếp luân phiên dải màu Nóng và Lạnh mang lại lợi ích gì?', opts:['Giúp kích thích sự tập trung và giảm thiểu sự đơn điệu, mệt mỏi cho thị giác','Phân loại cấp bậc từ cao xuống thấp của các phòng ban','Là yêu cầu bắt buộc vì hộp màu thường có số lượng bằng nhau','Chỉ mang mục đích làm bản vẽ sặc sỡ hơn'], correct:0 },
+      ],
+    },
+  },
+  {
+    id:4, title:'Sức Mạnh Từ Khóa', subtitle:'Chắt lọc tinh hoa thông tin',
+    icon:'✍️', duration:'10 phút', color:'ocean',
+    content: {
+      intro: "Trong môi trường làm việc cường độ cao của anh chị, khả năng cô đọng thông tin là một kỹ năng đắt giá. Từ khóa trong Mind Map đóng vai trò như những chiếc mỏ neo nhỏ, giúp bảo lưu hàng vạn ý nghĩ phong phú của chúng ta.\n\nVmindsports luôn đồng hành để khuyến khích anh chị rèn luyện thói quen giữ lại duy nhất một từ khóa quan trọng cho mỗi nhánh. Khi chắt lọc được đúng điểm rơi ngôn ngữ, tốc độ tư duy và ra quyết định của anh chị sẽ được linh hoạt và toàn diện hơn.",
+      keyPoints: [
+        { title:'Sức bật phi thường của sự cô đọng', text:'Một câu phân tích rất dài chỉ ép bộ não vào trạng thái tiếp nhận thụ động. Nhưng nếu chỉ giữ lại từ "TỐI ƯU", tâm não lập tức đặt câu hỏi phân tích: Tối ưu điều gì? Ai tham gia? Khi nào thực hiện? Đó mới đích thực là khởi nguồn sáng tạo.' },
+        { title:'Tuyệt kỹ tìm từ mấu chốt', text:'• Hãy triệt để ưu tiên những Động từ thực thi hoặc Danh từ trung tâm\n• Gói gọn nhẹ nhàng từ 1 đến 3 chữ (Ví dụ: CHIẾN LƯỢC, ĐỒNG HÀNH)\n• Cấu trúc viết IN HOA tôn lên sự minh bạch và tác phong chuyên nghiệp\n• Tinh giản các trạng từ, giới từ không sinh giá trị quyết định' },
+        { title:'Phát triển hệ sinh thái nhánh phụ', text:'• Nhánh phụ là những nét kẻ thanh thoát (không cần cấu trúc sừng trâu)\n• Duy trì sắc độ màu biểu trưng của nhánh chính để cố kết hệ thống\n• Thể hiện nét chữ với kích thước tinh tế, thu nhỏ dần theo hệ bậc\n• Gấp khúc dịu dàng như sự vươn dài tự nhiên của cành cây gõ cửa tương lai' },
+        { title:'Thổi hồn vào bản vẽ', text:'• Một biểu tượng đồ họa (icon) chứa sức mạnh truyền tải thông điệp rất lớn\n• Ghi chú quan trọng: Hãy nhẹ nhàng đặt icon trên một đường nét đệm mỏng\n• Xây dựng đường đứt đoạn (liên kết chéo) tinh tế nối liền các mạch ý tưởng có tính tương hỗ chiến lược' },
+      ],
+      levelExamples: {
+        beginner:'Một bài tập thật êm ái: Anh chị hãy bôi đậm đúng 5 từ tinh hoa nhất trong một email dài vừa nhận được. Sự lược giản đó chính là thao tác đầu tiên để tìm ra từ khóa nhánh.',
+        intermediate:'Nếu anh chị tình cờ nhận ra mình vừa viết cụm "Xây dựng dự án tháng sắp tới" lên nhánh. Đừng bận tâm, hãy nhẹ nhàng chẻ nó thành [DỰ ÁN] ở nhánh chủ lực, và rẽ nhánh [THÁNG MỚI] ở vùng nhánh chi tiết.',
+        advanced:'Với tầm ảnh hưởng của người lãnh đạo, hãy sử dụng từ khóa có khả năng chạm vào trái tim tự tin của tập thể. Việc thay đổi từ "NHIỆM VỤ" thành "SỨ MỆNH KHAI PHÓNG" sẽ tự khắc dịch chuyển bức tâm đồ năng lượng của cả bản Mind Map.',
+      },
+    },
+    exercise: {
+      type:'keyword-extraction',
+      title:'Nghệ thuật chắt lọc ngôn từ',
+      instructions:'Mời anh chị tìm ra từ khóa kim cương cho từng nội dung nhánh, khởi nguồn từ đoạn văn mang tính định hướng sau đây.',
+      passage:'Với tầm nhìn hướng tới giáo dục khai phóng, CLB mong muốn trang bị cho học viên một tinh thần tự học mạnh mẽ, cùng thói quen đọc sách tích cực. Từ đó, xây dựng một hệ sinh thái gắn kết, thấu cảm và vững vàng tiếp bước tương lai.',
+      items: [
+        { id:'k1', branch:'Nhánh cốt lõi (Tầm nhìn)', correct:'KHAI PHÓNG', options:['HƯỚNG TỚI','VỚI TẦM NHÌN','KHAI PHÓNG','GIÁO DỤC'] },
+        { id:'k2', branch:'Nhánh phụ 1 (Trang bị)', correct:'TỰ HỌC', options:['TINH THẦN','TỰ HỌC','HỌC VIÊN','CHO TƯƠNG LAI'] },
+        { id:'k3', branch:'Nhánh phụ 2 (Thói quen)', correct:'ĐỌC SÁCH', options:['ĐỌC SÁCH TÍCH CỰC','ĐỌC SÁCH','THÓI QUEN','MONG MUỐN'] },
+        { id:'k4', branch:'Nhánh phụ 3 (Hệ sinh thái)', correct:'THẤU CẢM', options:['THẤU CẢM','XÂY DỰNG','HỆ SINH THÁI','TIẾP BƯỚC'] },
+      ],
+    },
+    assessment: {
+      title:'Thử thách: Bậc thầy Ngôn từ',
+      questions: [
+        { q:'Tuân thủ tiêu chuẩn "Duy nhất một từ khóa trên mỗi nhánh" mang lại trải nghiệm ưu việt nào?', opts:['Giúp bản vẽ lấp được nhiều khoảng trống để tiết kiệm giấy','Tạo ra khoảng thở không gian để vẫy gọi luồng liên tưởng tự do của trí não','Đây thuần túy là quy định hội họa cho đẹp mắt','Làm cho bộ vi mô của bài viết có phần trang trọng hơn'], correct:1 },
+        { q:'Đặc tính chuẩn xác của nhánh phụ bao gồm:', opts:['Nhánh phụ cũng được đặc tả nét dày đậm như nhánh trung tâm','Kẻ thành những hệ khung đường viền bao quanh','Là cầu nối đường nét thanh mảnh, hòa chung dải màu với nhánh chính','Làm mờ để biểu đạt tính nhún nhường trong cấu trúc'], correct:2 },
+        { q:'Lựa chọn Từ Khóa mang sức thuyết phục cao nhất rơi vào nhóm nền tảng từ loại nào?', opts:['Các tính từ, trạng ngữ phụ họa lặp lại','Danh Từ danh giá hoặc Động Từ mang sung lực thông điệp lớn nhất','Cứ chọn một cụm từ thật dài cho rõ nghĩa','Những cụm từ chỉ đơn vị đong đếm'], correct:1 },
+      ],
+    },
+  },
+  {
+    id:5, title:'Ứng Dụng Chuyên Sâu', subtitle:'Tối ưu hóa năng suất lãnh đạo',
+    icon:'🚀', duration:'15 phút', color:'bee',
+    content: {
+      intro: "Gửi lời chúc mừng ấm áp tới các anh chị khi đã sẵn sàng đồng tốc cùng chuẩn mực Thể thao Tư duy Quốc tế.\n\nNhìn từ góc độ cao tầng, Mind Map không chỉ là công cụ thu thập, mà đó thật sự là một tấm Bản Đồ Định Vị (Navigational Compass) cho đường hướng công việc. Thông qua những trải nghiệm chia sẻ sắp tới, Vmindsports mong muốn anh chị tiết kiệm được những giờ thảo luận căng thẳng, và vun bồi thêm nhiều năng lượng tĩnh tại.",
+      keyPoints: [
+        { title:'Chủ tọa cuộc họp bằng Một trang (One-Page)', text:'1. Xác định trọn vẹn chủ đề và biểu đạt bằng Hình trung tâm tinh tế trước buổi làm việc\n2. Mỗi dòng thông điệp chiến lược của từng người tham dự ứng với một thân nhánh độc lập\n3. Lắng nghe và đính kết linh hồn ý tưởng vào hệ thống nhánh phụ\nSau những giây phút đàm thoại, biên bản thấu đáo nhất tự khắc tượng hình thay vì những email dài dòng.' },
+        { title:'Phá tảng băng quyết định', text:'Thay vì cố sức cân não:\n1. Gọi tên sự khó khăn ngay vào giữa vùng hội tụ\n2. Cổ vũ tập thể thoải mái tạo nhánh ý kiến, không phán xét, không rụt rè\n3. Sự minh bạch của bức tranh bao trùm sẽ tháo gỡ điểm mù, mở đường cho sự tối ưu lộ diện rạng rỡ nhất.' },
+        { title:'Dẫn dắt cảm hứng Đào tạo', text:'Mỗi một tấm hình Mind Map đủ năng lực hòa nhịp tương đương hàng mươi trang slide cứng nhắc. Bằng phong cách hướng dẫn vừa kết cấu vừa tự họa đường nét (Live-mapping), anh chị lật mở tư duy của mình, xóa tan rào cản phòng hội nghị và truyền nhiệt từ trái tim đến trái tim người nghe.' },
+        { title:'Trạm Kiểm Định Bản Thể (Gate Check)', text:'Xin mời anh chị thong dong nghiệm lại tác phẩm của bản thân:\n✅ Trung tâm đa sắc ngập tràn sức sống 4 màu sắc, tỏa nhánh thuận chiều tự nhiên?\n✅ Vị trí nhánh tiên phong đặt góc 1h?\n✅ Nhánh tỏa sừng trâu mượt mà, điểm tô hoa văn?\n✅ Từ khóa cô đọng, viết In Hoa kiêu hãnh trải dài không gian nhánh?\n✅ Sắc độ màu Nóng và Lạnh xen kẽ tương tấu?\n✅ Biểu tượng linh động có nét đệm an toàn tĩnh ngự?\n✅ Tạo lập tương tác chéo từ những đường liên kết?\nChỉ cần thấy bình yên và tâm đắc, anh chị đã là một chuyên gia lan tỏa cảm hứng!' },
+      ],
+      levelExamples: {
+        beginner:'Tối nay, mong anh chị để cho mình một khoảng lặng trong trẻo, vẽ họa đồ về hành trình nhỏ cho tổ ấm gia đình cuối tuần. Hãy xếp gọn bộn bề để thưởng lãm từng đường nét lan tỏa.',
+        intermediate:'Mời anh chị tìm đọc một trang định hướng công việc đang ngổn ngang để chiêm nghiệm lại và hóa giải nó trên một mặt giấy tĩnh tại thông qua mã hiệu của Mind Map.',
+        advanced:'Bước chân tự tin: Một ngày không xa, tại sảnh đón hội nghị, anh chị cầm bút dứt khoát vạch những tia Mind Map rạng ngời lên Bảng Trắng, tựa như phong thái một đại sứ Vmindsports gieo vào tâm trí tổ chức dòng chảy của tương lai.',
+      },
+    },
+    exercise: {
+      type:'application',
+      title:'Bước phát triển chuyên nghiệp mới',
+      instructions:'Mời anh chị khởi tạo kế hoạch thiết thực mang Mind Map chuyển hóa vào guồng xoay công việc.',
+      prompts: [
+        { id:'ap1', question:'Chủ đề đầu tay anh chị tâm đắc lựa chọn vẽ Mind Map ứng dụng là gì?', placeholder:'Ví dụ: "Chiến lược Phát triển Đội nhóm" hay "Tái định vị Thương hiệu"...' },
+        { id:'ap2', question:'Những tuyến nhánh trọng yếu anh chị định hình cấu trúc?', placeholder:'Ví dụ: "HƯỚNG TỚI, QUY TRÌNH, PHẢN HỒI, NHÂN LỰC, ĐÁNH GIÁ..."' },
+        { id:'ap3', question:'Cột mốc thi vị nào anh chị dành riêng trải nghiệm thực thi?', placeholder:'Ví dụ: "Sáng thứ Ba yên ả lúc 7h30, trước giờ vào việc..."' },
+        { id:'ap4', question:'Anh chị sẽ vững tâm đối chiếu cùng Trạm Kiểm Định (Gate Check) 17 điểm sáng chứ?', placeholder:'Ví dụ: "Chắc chắn rồi, đó là cách rèn giũa bản lĩnh tuyệt diệu nhất."' },
+      ],
+    },
+    assessment: {
+      title:'Thử thách: Niềm tin và Hành động',
+      questions: [
+        { q:'Một tác phẩm Mind Map đẳng cấp định hướng Vmindsports khát khao truyền tải điều gì lớn nhất?', opts:['Cố gắng lấp đầy vô tận các chỗ trống bằng bút dạ quang rực rỡ ngẫu nhiên','Khơi mào một trung tâm đa sắc, nhánh sừng trâu khỏe khoắn tự do ươm mầm một từ khóa cô đọng In Hoa','Sự xếp đặt trình tự lề lối cứng ngắc y như hệ thống báo cáo văn bản','Hình thức cầu kì như tranh của danh họa'], correct:1 },
+        { q:'Rào cản tư duy hay bắt gặp làm mờ đi hiệu năng thực sự của Mind Map là việc:', opts:['Dành tâm huyết chọn lấy icon biểu thị ấn tượng','Trích chép thụ động nguyên mặt chữ dông dài vắt ngang dải nhánh quý giá','Liên kết những tầm nhìn rời rạc với nhau qua nét mực đứt quãng mỏng manh','Tìm kiếm nhiều dải màu sắc đa diện'], correct:1 },
+        { q:'Món quà giá trị nhất anh chị thụ đắc vượt qua khuôn khổ nhận thức chương trình này là gì?', opts:['Thích thú nhận được một ấn phẩm hình thức mạ vàng','Nắm rõ vẹn toàn những tinh hoa phương pháp, và vững vàng tích hợp Thể thao Tư duy vào đường đua chuyên môn','Chỉ để nhớ vài thông tin về lịch sử khai sinh Tony Buzan','Trở thành công cụ giải trí khi nhàn rỗi'], correct:1 },
+      ],
+    },
+  },
+];
+// UI COMPONENTS
+// ============================================================
+function Button({ children, onClick, variant='primary', size='md', disabled=false, className='' }) {
+  const base = 'font-bold rounded-xl transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ';
+  const variants = { primary:'bg-gradient-to-r from-bee-500 to-bee-600 text-white hover:shadow-lg hover:shadow-bee-500/25', secondary:'bg-gradient-to-r from-ocean-500 to-ocean-600 text-white hover:shadow-lg hover:shadow-ocean-500/25', outline:'border-2 border-bee-500 text-bee-700 hover:bg-bee-50', ghost:'text-gray-600 hover:bg-gray-100', success:'bg-gradient-to-r from-mint-500 to-mint-600 text-white', danger:'bg-gradient-to-r from-coral-400 to-coral-500 text-white' };
+  const sizes = { sm:'px-3 py-1.5 text-sm', md:'px-5 py-2.5 text-base', lg:'px-7 py-3.5 text-lg' };
+  return <button className={`${base}${variants[variant]||variants.primary} ${sizes[size]||sizes.md} ${className}`} onClick={()=>{SoundManager.playClick();onClick&&onClick();}} disabled={disabled}>{children}</button>;
+}
+
+// ============================================================
+// GATE SCREEN (chặn truy cập trực tiếp — buộc phải qua LadiPage)
+// ============================================================
+const LADIPAGE_URL = 'https://vmindsports.ladipage.com/mindmap-checkpoint'; // ← Cô thay link LadiPage thật vào đây
+
+function GateScreen() {
+  return (
+    <div className="min-h-screen fun-bg flex items-center justify-center p-4">
+      <div className="max-w-md w-full fade-in text-center">
+        <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
+        <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-2">🐝 Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
+        <p className="text-gray-500 text-sm mb-6">Ôn tập & Kiểm tra kiến thức Mind Map chuẩn Tony Buzan</p>
+        <div className="glow-border"><div className="bg-white rounded-xl p-6 sm:p-8">
+          <div className="text-5xl mb-4">🔐</div>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">Vui lòng đăng ký trước khi học</h2>
+          <p className="text-gray-500 text-sm mb-6">Để lưu tiến độ và cấp chứng chỉ, bạn cần đăng ký qua trang chính thức. Sau đó link vào học sẽ gửi tự động qua <strong>Email</strong>.</p>
+          <a href={LADIPAGE_URL} target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="w-full pulse-glow">Đăng ký ngay →</Button>
+          </a>
+          <div className="mt-4 pt-4 border-t border-gray-100">
+            <p className="text-xs text-gray-400">Đã đăng ký rồi? Vui lòng bấm vào link trong Email nhé! 📧</p>
+          </div>
+        </div></div>
+        <p className="text-center text-xs text-gray-400 mt-6">© Vmindsports · Ôn Tập Sơ Đồ Tư Duy Chuẩn</p>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// REGISTRATION FALLBACK (khi URL có 1 trong 2 trường)
+// ============================================================
+function Registration({ onSubmit, defaultName, defaultEmail }) {
+  const [name, setName] = useState(defaultName || '');
+  const [email, setEmail] = useState(defaultEmail || '');
+  return (
+    <div className="min-h-screen fun-bg flex items-center justify-center p-4">
+      <div className="max-w-md w-full fade-in">
+        <div className="text-center mb-6">
+          <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
+          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-1">🐝 Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
+          <p className="text-gray-500 text-sm">Xác nhận thông tin của bạn</p>
+        </div>
+        <div className="glow-border"><div className="bg-white rounded-xl p-6 sm:p-8">
+          <h2 className="text-xl font-bold text-gray-800 mb-1 text-center">Xác nhận để bắt đầu</h2>
+          <p className="text-xs text-gray-400 text-center mb-5">Tên sẽ hiển thị trên Chứng chỉ</p>
+          <div className="space-y-4">
+            <div><label className="block text-sm font-semibold text-gray-700 mb-1">Danh xưng & Họ tên *</label><input className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-bee-500 focus:outline-none transition text-gray-800" placeholder="VD: PGS. TS. Nguyễn Văn A" value={name} onChange={e=>setName(e.target.value)} /></div>
+            <div><label className="block text-sm font-semibold text-gray-700 mb-1">Email *</label><input type="email" className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-ocean-500 focus:outline-none transition text-gray-800" placeholder="email@example.com" value={email} onChange={e=>setEmail(e.target.value)} /></div>
+          </div>
+          <div className="mt-6"><Button size="lg" className="w-full pulse-glow" onClick={()=>{ if(name.trim()&&email.trim()) onSubmit(name.trim(),email.trim()); }} disabled={!name.trim()||!email.trim()}>Bắt đầu học 🐝</Button></div>
+        </div></div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// ONBOARDING
+// ============================================================
+function Onboarding({ userName, onSelect }) {
+  return (
+    <div className="min-h-screen fun-bg flex items-center justify-center p-4">
+      <div className="max-w-lg w-full fade-in">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-black text-gray-900">Chào <span className="text-bee-600">{userName}</span>! 👋</h2>
+          <p className="text-gray-500 mt-1">Bạn dự định ứng dụng Mind Map Chuẩn vào lĩnh vực nào?</p>
+        </div>
+        <div className="space-y-3">
+          {LEVELS.map((lv,i) => (
+            <button key={lv.id} onClick={()=>{SoundManager.playLevelUp();onSelect(lv.id);}} className={`w-full text-left p-4 sm:p-5 rounded-xl border-2 border-gray-200 hover:border-bee-400 bg-white card-hover transition-all`} style={{animationDelay:`${i*0.1}s`}}>
+              <div className="flex items-center gap-4">
+                <span className="text-3xl">{lv.icon}</span>
+                <div><h3 className="font-bold text-gray-800">{lv.name}</h3><p className="text-sm text-gray-500">{lv.desc}</p></div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// DASHBOARD
+// ============================================================
+function Dashboard({ progress, onSelectModule, onCertificate }) {
+  const completed = MODULES.filter(m=>progress[m.id]?.done).length;
+  const pct = Math.round((completed/MODULES.length)*100);
+  const allDone = completed === MODULES.length;
+  return (
+    <div className="min-h-screen fun-bg p-4 pb-20">
+      <div className="max-w-lg mx-auto fade-in">
+        <div className="text-center mb-4 pt-1">
+          <img src="images/logo-vmindsports.png" alt="" className="w-20 h-20 mx-auto mb-1 drop-shadow-sm" />
+          <h1 className="text-2xl font-black text-gray-900">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
+          <p className="text-sm text-gray-500">Chuẩn Tony Buzan · Vmindsports</p>
+        </div>
+        {/* Progress */}
+        <div className="bg-white rounded-xl p-4 mb-4 shadow-md border border-gray-100">
+          <div className="flex justify-between items-center mb-2"><span className="text-sm font-bold text-gray-700">Tiến độ</span><span className="text-sm font-bold text-bee-600">{completed}/{MODULES.length}</span></div>
+          <div className="h-3 bg-gray-100 rounded-full overflow-hidden"><div className="h-full bg-gradient-to-r from-bee-400 to-ocean-500 rounded-full progress-bar" style={{width:`${pct}%`}} /></div>
+          {allDone && <p className="text-center text-sm font-bold text-mint-600 mt-2 bounce-in">🎉 Hoàn thành xuất sắc!</p>}
+          {!allDone && <p className="text-center text-xs text-gray-400 mt-2">🏆 Hoàn thành {MODULES.length} bài để nhận Chứng chỉ</p>}
+        </div>
+        {/* Module List */}
+        <div className="space-y-3">
+          {MODULES.map((m,i) => {
+            const done = progress[m.id]?.done;
+            const score = progress[m.id]?.assessment;
+            return (
+              <button key={m.id} onClick={()=>{SoundManager.playClick();onSelectModule(m.id);}} className={`w-full text-left p-4 rounded-xl bg-white transition-all duration-300 transform ${done?'border-2 border-mint-500 shadow-sm':'border border-gray-100 shadow-sm hover:shadow-lg hover:border-bee-300 hover:-translate-y-1'}`}>
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{done?'✅':m.icon}</span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-gray-800 text-sm sm:text-base truncate">Bài {m.id}: {m.title}</h3>
+                    <p className="text-xs text-gray-400">{m.duration}{score!=null?` · Điểm: ${score}%`:''}</p>
+                  </div>
+                  <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+        {/* Certificate Button */}
+        {allDone && <div className="mt-6 text-center"><Button variant="success" size="lg" onClick={()=>{SoundManager.playCourseComplete();onCertificate();}}>Xem Chứng chỉ 🏆</Button></div>}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// EXERCISES
+// ============================================================
+function ExerciseIdentify({ exercise, onComplete }) {
+  const cats = exercise.items[0]?.answer==='linear' ? {a:'linear',b:'mindmap',aLabel:'📝 Tuyến tính',bLabel:'🧠 Mind Map'} : {a:'dung',b:'sai',aLabel:'✅ ĐÚNG chuẩn',bLabel:'❌ SAI chuẩn'};
+  const [placed, setPlaced] = useState({});
+  const [checked, setChecked] = useState(false);
+  const items = exercise.items;
+  const unplaced = items.filter(it=>!placed[it.id]);
+  const aItems = items.filter(it=>placed[it.id]===cats.a);
+  const bItems = items.filter(it=>placed[it.id]===cats.b);
+  const score = checked ? items.filter(it=>placed[it.id]===it.answer).length : 0;
+  const handleDrop = (id, cat) => { if(checked) return; setPlaced(p=>({...p,[id]:cat})); };
+  return (
+    <div className="fade-in">
+      <h3 className="font-bold text-lg text-gray-800 mb-1">{exercise.title}</h3>
+      <p className="text-sm text-gray-500 mb-4">{exercise.instructions}</p>
+      {/* Unplaced */}
+      {unplaced.length>0 && <div className="mb-4"><p className="text-xs font-bold text-gray-500 mb-2">Kéo/bấm vào mỗi thẻ:</p><div className="space-y-2">{unplaced.map(it=>(
+        <div key={it.id} className="bg-bee-50 border-2 border-bee-200 rounded-lg p-3 text-sm text-gray-800 flex gap-2">
+          <span className="flex-1">{it.text}</span>
+          <div className="flex gap-1 flex-shrink-0">
+            <button onClick={()=>handleDrop(it.id,cats.a)} className="px-2 py-1 text-xs rounded bg-blue-100 text-blue-700 hover:bg-blue-200 font-bold">{cats.aLabel.split(' ')[0]}</button>
+            <button onClick={()=>handleDrop(it.id,cats.b)} className="px-2 py-1 text-xs rounded bg-orange-100 text-orange-700 hover:bg-orange-200 font-bold">{cats.bLabel.split(' ')[0]}</button>
+          </div>
+        </div>
+      ))}</div></div>}
+      {/* Categories */}
+      <div className="grid grid-cols-2 gap-3 mb-4">
+        <div className="bg-blue-50 rounded-xl p-3 min-h-[80px] border-2 border-blue-200">
+          <p className="text-xs font-bold text-blue-700 mb-2">{cats.aLabel}</p>
+          {aItems.map(it=>(<div key={it.id} className={`text-xs p-2 rounded mb-1 ${checked?(it.answer===cats.a?'bg-green-100 text-green-800':'bg-red-100 text-red-800'):'bg-white text-gray-700'}`}>{it.text}{checked&&it.answer!==cats.a&&' ✗'}</div>))}
+        </div>
+        <div className="bg-orange-50 rounded-xl p-3 min-h-[80px] border-2 border-orange-200">
+          <p className="text-xs font-bold text-orange-700 mb-2">{cats.bLabel}</p>
+          {bItems.map(it=>(<div key={it.id} className={`text-xs p-2 rounded mb-1 ${checked?(it.answer===cats.b?'bg-green-100 text-green-800':'bg-red-100 text-red-800'):'bg-white text-gray-700'}`}>{it.text}{checked&&it.answer!==cats.b&&' ✗'}</div>))}
+        </div>
+      </div>
+      {!checked && Object.keys(placed).length===items.length && <Button onClick={()=>{setChecked(true);score===items.length?SoundManager.playCorrect():SoundManager.playWrong();}}>Kiểm tra kết quả</Button>}
+      {checked && <div className="bg-white rounded-xl p-4 border"><p className="font-bold text-lg">{score}/{items.length} đúng {score===items.length?'🎉':'💪'}</p><Button className="mt-3" onClick={onComplete} variant="success">Tiếp tục →</Button></div>}
+    </div>
+  );
+}
+
+function ExerciseColorMatch({ exercise, onComplete }) {
+  const [answers, setAnswers] = useState({});
+  const [checked, setChecked] = useState(false);
+  const colorNames = {red:'🔴 Đỏ',blue:'🔵 Xanh dương',orange:'🟠 Cam',green:'🟢 Xanh lá',brown:'🟤 Nâu',purple:'🟣 Tím'};
+  const items = exercise.items;
+  const score = checked ? items.filter(it=>answers[it.id]===it.answer).length : 0;
+  return (
+    <div className="fade-in">
+      <h3 className="font-bold text-lg text-gray-800 mb-1">{exercise.title}</h3>
+      <p className="text-sm text-gray-500 mb-4">{exercise.instructions}</p>
+      <div className="space-y-3">
+        {items.map(it=>(
+          <div key={it.id} className={`bg-white rounded-xl p-4 border-2 ${checked?(answers[it.id]===it.answer?'border-mint-500':'border-coral-400'):'border-gray-200'}`}>
+            <p className="font-bold text-sm text-gray-800 mb-2">{it.position}</p>
+            <div className="flex flex-wrap gap-2">
+              {it.options.map(opt=>(
+                <button key={opt} onClick={()=>{if(!checked){setAnswers(a=>({...a,[it.id]:opt}));SoundManager.playClick();}}} className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${answers[it.id]===opt?'ring-2 ring-bee-500 bg-bee-50 scale-105':'bg-gray-100 hover:bg-gray-200'} ${checked&&opt===it.answer?'!bg-green-100 !ring-mint-500':''}`}>{colorNames[opt]||opt}</button>
+              ))}
+            </div>
+            {checked && answers[it.id]!==it.answer && <p className="text-xs text-coral-500 mt-1">Đáp án đúng: {colorNames[it.answer]}</p>}
+          </div>
+        ))}
+      </div>
+      {!checked && Object.keys(answers).length===items.length && <div className="mt-4"><Button onClick={()=>{setChecked(true);score===items.length?SoundManager.playCorrect():SoundManager.playWrong();}}>Kiểm tra kết quả</Button></div>}
+      {checked && <div className="bg-white rounded-xl p-4 border mt-4"><p className="font-bold text-lg">{score}/{items.length} đúng {score===items.length?'🎉':'💪'}</p><Button className="mt-3" onClick={onComplete} variant="success">Tiếp tục →</Button></div>}
+    </div>
+  );
+}
+
+function ExerciseKeyword({ exercise, onComplete }) {
+  const [answers, setAnswers] = useState({});
+  const [checked, setChecked] = useState(false);
+  const items = exercise.items;
+  const score = checked ? items.filter(it=>answers[it.id]===it.correct).length : 0;
+  return (
+    <div className="fade-in">
+      <h3 className="font-bold text-lg text-gray-800 mb-1">{exercise.title}</h3>
+      <p className="text-sm text-gray-500 mb-3">{exercise.instructions}</p>
+      <div className="bg-bee-50 rounded-xl p-4 mb-4 border border-bee-200"><p className="text-sm text-gray-700 italic">"{exercise.passage}"</p></div>
+      <div className="space-y-3">
+        {items.map(it=>(
+          <div key={it.id} className={`bg-white rounded-xl p-4 border-2 ${checked?(answers[it.id]===it.correct?'border-mint-500':'border-coral-400'):'border-gray-200'}`}>
+            <p className="font-bold text-sm text-gray-800 mb-2">{it.branch}</p>
+            <div className="flex flex-wrap gap-2">
+              {it.options.map(opt=>(
+                <button key={opt} onClick={()=>{if(!checked){setAnswers(a=>({...a,[it.id]:opt}));SoundManager.playClick();}}} className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${answers[it.id]===opt?'ring-2 ring-bee-500 bg-bee-50 scale-105':'bg-gray-100 hover:bg-gray-200'} ${checked&&opt===it.correct?'!bg-green-100 !ring-mint-500':''}`}>{opt}</button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      {!checked && Object.keys(answers).length===items.length && <div className="mt-4"><Button onClick={()=>{setChecked(true);score===items.length?SoundManager.playCorrect():SoundManager.playWrong();}}>Kiểm tra kết quả</Button></div>}
+      {checked && <div className="bg-white rounded-xl p-4 border mt-4"><p className="font-bold text-lg">{score}/{items.length} đúng {score===items.length?'🎉':'💪'}</p><Button className="mt-3" onClick={onComplete} variant="success">Tiếp tục →</Button></div>}
+    </div>
+  );
+}
+
+function ExerciseApplication({ exercise, onComplete }) {
+  const [answers, setAnswers] = useState({});
+  const filled = exercise.prompts.every(p=>answers[p.id]?.trim());
+  return (
+    <div className="fade-in">
+      <h3 className="font-bold text-lg text-gray-800 mb-1">{exercise.title}</h3>
+      <p className="text-sm text-gray-500 mb-4">{exercise.instructions}</p>
+      <div className="space-y-4">
+        {exercise.prompts.map((p,i)=>(
+          <div key={p.id} className="bg-white rounded-xl p-4 border-2 border-gray-200">
+            <p className="font-bold text-sm text-gray-800 mb-2">{i+1}. {p.question}</p>
+            <textarea className="w-full p-3 rounded-lg border border-gray-200 focus:border-bee-500 focus:outline-none text-sm resize-none" rows={2} placeholder={p.placeholder} value={answers[p.id]||''} onChange={e=>setAnswers(a=>({...a,[p.id]:e.target.value}))} />
+          </div>
+        ))}
+      </div>
+      {filled && <div className="mt-4"><Button onClick={()=>{SoundManager.playComplete();onComplete();}} variant="success">Hoàn thành ✅</Button></div>}
+    </div>
+  );
+}
+
+// ============================================================
+// QUIZ
+// ============================================================
+function Quiz({ assessment, onComplete }) {
+  const [current, setCurrent] = useState(0);
+  const [selected, setSelected] = useState(null);
+  const [results, setResults] = useState([]);
+  const [showResult, setShowResult] = useState(false);
+  const qs = assessment.questions;
+  const q = qs[current];
+  const totalCorrect = results.filter(r=>r).length;
+  const score = Math.round((totalCorrect/qs.length)*100);
+
+  const handleSelect = (idx) => {
+    if(selected!==null) return;
+    setSelected(idx);
+    const correct = idx===q.correct;
+    correct ? SoundManager.playCorrect() : SoundManager.playWrong();
+    setResults(r=>[...r, correct]);
+  };
+  const handleNext = () => {
+    if(current<qs.length-1) { setCurrent(c=>c+1); setSelected(null); }
+    else { setShowResult(true); SoundManager.playComplete(); }
+  };
+
+  if(showResult) return (
+    <div className="fade-in text-center py-6">
+      <div className="text-5xl mb-3">{score>=80?'🎉':score>=60?'👍':'💪'}</div>
+      <h3 className="text-2xl font-black text-gray-900 mb-1">Kết quả: {score}%</h3>
+      <p className="text-gray-500 mb-1">{totalCorrect}/{qs.length} câu đúng</p>
+      <p className="text-sm text-gray-400 mb-4">{score>=80?'Xuất sắc! Bạn nắm vững kiến thức.':score>=60?'Khá tốt! Ôn lại vài điểm nhé.':'Hãy đọc lại bài học và thử lại!'}</p>
+      <Button onClick={()=>onComplete(score)} variant="success">Hoàn thành bài này ✅</Button>
+    </div>
+  );
+  return (
+    <div className="fade-in">
+      <div className="flex justify-between items-center mb-4"><span className="text-sm font-bold text-gray-500">Câu {current+1}/{qs.length}</span><div className="flex gap-1">{qs.map((_,i)=>(<div key={i} className={`w-2.5 h-2.5 rounded-full ${i<results.length?(results[i]?'bg-mint-500':'bg-coral-400'):(i===current?'bg-bee-500':'bg-gray-200')}`}/>))}</div></div>
+      <h3 className="font-bold text-gray-800 mb-4">{q.q}</h3>
+      <div className="space-y-2">
+        {q.opts.map((opt,idx)=>(
+          <button key={idx} onClick={()=>handleSelect(idx)} className={`w-full text-left p-3 rounded-xl border-2 text-sm transition-all ${selected===null?'border-gray-200 hover:border-bee-400 bg-white':idx===q.correct?'border-mint-500 bg-green-50':selected===idx?'border-coral-400 bg-red-50':'border-gray-200 bg-white opacity-60'}`}>{opt}</button>
+        ))}
+      </div>
+      {selected!==null && <div className="mt-4"><Button onClick={handleNext}>{current<qs.length-1?'Câu tiếp theo →':'Xem kết quả'}</Button></div>}
+    </div>
+  );
+}
+
+// ============================================================
+// LESSON VIEW
+// ============================================================
+function LessonView({ moduleId, level, progress, onBack, onUpdateProgress }) {
+  const mod = MODULES.find(m=>m.id===moduleId);
+  const [tab, setTab] = useState('learn');
+  const [exerciseDone, setExerciseDone] = useState(false);
+  const tabs = [{id:'learn',label:'📖 Ôn nhanh'},{id:'challenge',label:'🧩 Thử thách'}];
+
+  const handleQuizComplete = (score) => {
+    const p = {...progress, [mod.id]:{...progress[mod.id], assessment:score, done:true}};
+    onUpdateProgress(p);
+    SoundManager.playComplete();
+  };
+
+  return (
+    <div className="min-h-screen fun-bg p-4 pb-20">
+      <div className="max-w-lg mx-auto fade-in">
+        {/* Header */}
+        <div className="flex items-center gap-3 mb-4 pt-2">
+          <button onClick={onBack} className="p-2 rounded-lg hover:bg-white/80 transition"><svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/></svg></button>
+          <div><h2 className="font-black text-gray-900 text-lg">{mod.icon} Bài {mod.id}: {mod.title}</h2><p className="text-xs text-gray-500">{mod.subtitle} · {mod.duration}</p></div>
+        </div>
+        {/* Tabs */}
+        <div className="flex bg-white rounded-xl p-1 mb-4 border border-gray-200">
+          {tabs.map(t=>(<button key={t.id} onClick={()=>{setTab(t.id);SoundManager.playClick();}} className={`flex-1 py-2 px-2 rounded-lg text-xs sm:text-sm font-bold transition-all ${tab===t.id?'bg-gradient-to-r from-bee-500 to-ocean-500 text-white shadow':'text-gray-500 hover:bg-gray-50'}`}>{t.label}</button>))}
+        </div>
+        {/* Tab Content */}
+        <div className="bg-white rounded-xl p-4 sm:p-6 border border-gray-100 shadow-sm">
+          {tab==='learn' && (
+            <div className="fade-in space-y-4">
+              <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-line">{mod.content.intro}</p>
+              {mod.content.imageUrl && (
+                <div className="my-4">
+                  <img src={mod.content.imageUrl} alt="Mind Map Mẫu" className="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" />
+                  <p className="text-center text-xs text-gray-400 mt-2 italic">Mind Map minh họa</p>
+                </div>
+              )}
+              <hr className="border-gray-100"/>
+              {mod.content.keyPoints.map((kp,i)=>(
+                <div key={i} className="bg-gray-50 rounded-xl p-4">
+                  <h4 className="font-bold text-gray-800 mb-2 text-sm">{kp.title}</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{kp.text}</p>
+                </div>
+              ))}
+              <div className="bg-bee-50 rounded-xl p-4 border border-bee-200">
+                <p className="text-xs font-bold text-bee-700 mb-1">💡 Gợi ý cho Chuyên gia</p>
+                <p className="text-sm text-gray-700">{mod.content.levelExamples[level]||mod.content.levelExamples.advanced}</p>
+              </div>
+              <div className="text-center"><Button onClick={()=>{setTab('challenge');SoundManager.playClick();}}>Bắt đầu Thử thách 🧩</Button></div>
+            </div>
+          )}
+          {tab==='challenge' && !exerciseDone && (
+            <>
+              {mod.exercise.type==='identify-system' && <ExerciseIdentify exercise={mod.exercise} onComplete={()=>setExerciseDone(true)} />}
+              {mod.exercise.type==='color-matching' && <ExerciseColorMatch exercise={mod.exercise} onComplete={()=>setExerciseDone(true)} />}
+              {mod.exercise.type==='keyword-extraction' && <ExerciseKeyword exercise={mod.exercise} onComplete={()=>setExerciseDone(true)} />}
+              {mod.exercise.type==='application' && <ExerciseApplication exercise={mod.exercise} onComplete={()=>setExerciseDone(true)} />}
+            </>
+          )}
+          {tab==='challenge' && exerciseDone && !progress[mod.id]?.done && (
+            <div className="fade-in">
+              <div className="text-center py-3 mb-4"><div className="inline-flex items-center gap-2 px-4 py-2 bg-mint-50 rounded-full border border-mint-200"><span className="text-lg">✅</span><span className="text-sm font-bold text-mint-700">Tình huống hoàn thành! Tiếp tục với câu hỏi nhanh...</span></div></div>
+              <Quiz assessment={mod.assessment} onComplete={handleQuizComplete} />
+            </div>
+          )}
+          {tab==='challenge' && progress[mod.id]?.done && (
+            <div className="text-center py-6 fade-in"><div className="text-4xl mb-2">🎉</div><p className="font-bold text-gray-800 mb-1">Hoàn thành xuất sắc!</p><p className="text-gray-500 text-sm mb-4">Điểm: {progress[mod.id].assessment}%</p><Button onClick={onBack}>← Quay về Dashboard</Button></div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// CERTIFICATE
+// ============================================================
+function Certificate({ userName, level, progress, registeredAt, onBack }) {
+  const levelData = LEVELS.find(l=>l.id===level);
+  const dateVi = new Date().toLocaleDateString('vi-VN',{year:'numeric',month:'long',day:'numeric'});
+  const dateEn = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const avgScore = Math.round(MODULES.reduce((a,m)=>a+(progress[m.id]?.assessment||0),0)/MODULES.length);
+  const completedCount = MODULES.filter(m=>progress[m.id]?.done).length;
+  const [lang, setLang] = useState('vi');
+
+  // Elite status: Đánh giá xuất sắc nếu điểm trung bình >= 90%
+  const isElite = useMemo(() => avgScore >= 90, [avgScore]);
+
+  const handleDownload = () => {
+    // Capture certificate as image using html2canvas approach
+    const cert = document.getElementById('certificate-card');
+    if (!cert) return;
+    if (window.html2canvas) {
+      window.html2canvas(cert, { scale: 2, backgroundColor: '#ffffff', useCORS: true }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `MindMap_Certificate_${userName.replace(/\s+/g,'_')}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(err => {
+        console.error("Lỗi tạo ảnh:", err);
+        window.print();
+      });
+    } else {
+      window.print();
+    }
+  };
+
+  const txt = lang === 'vi' ? {
+    title: 'Chứng Nhận Chuyên Môn',
+    certify: 'Trân trọng chúc mừng',
+    completed: 'đã hoàn tất chương trình',
+    course: 'Phương pháp Sơ Đồ Tư Duy',
+    subtitle: 'Chuẩn Tony Buzan · Vmindsports',
+    track: 'Tiên phong ứng dụng vào',
+    score: 'Mức độ chuẩn hóa',
+    reviews: 'Ôn tập', challenges: 'Thử thách',
+    instructor: 'Người hướng dẫn',
+    role: 'Head Coach Vmindsports — Trọng tài Thể thao tư duy thế giới',
+    date: dateVi,
+    print: '🖨 In Chứng Chỉ', download: '📥 Tải Ảnh', back: '← Quay về',
+  } : {
+    title: 'Professional Certificate',
+    certify: 'This certifies that',
+    completed: 'has completed the update program in',
+    course: 'Mind Map Method',
+    subtitle: 'Mind Sports Standard Vmindsports',
+    track: 'Pioneering application in',
+    score: 'Standardization Level',
+    reviews: 'Reviews', challenges: 'Challenges',
+    instructor: 'Instructor',
+    role: 'Head Coach Vmindsports — World Mind Sports Arbiter',
+    date: dateEn,
+    print: '🖨 Print', download: '📥 Download', back: '← Back',
+  };
+
+  const trackIcon = levelData?.icon || '🧠';
+  const trackName = levelData?.name || (lang === 'vi' ? 'Chuyên gia Ứng dụng Sơ Đồ Tư Duy Chuẩn' : 'Certified Mind Map Practitioner');
+
+  return (
+    <div className="min-h-screen fun-bg flex items-center justify-center p-3 sm:p-6">
+      <div className="max-w-xl w-full fade-in">
+        {/* Language toggle */}
+        <div className="flex justify-center gap-2 mb-4 no-print">
+          <button onClick={()=>{setLang('vi');SoundManager.playClick();}} className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${lang==='vi'?'bg-white shadow border border-bee-300 text-bee-700':'bg-white/50 text-gray-400 hover:bg-white/80'}`}>🇻🇳 Tiếng Việt</button>
+          <button onClick={()=>{setLang('en');SoundManager.playClick();}} className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${lang==='en'?'bg-white shadow border border-ocean-300 text-ocean-700':'bg-white/50 text-gray-400 hover:bg-white/80'}`}>🇺🇸 English</button>
+        </div>
+
+        {/* Certificate Card */}
+        <div id="certificate-card" className="relative bg-white rounded-2xl overflow-hidden" style={{boxShadow:'0 8px 40px rgba(0,0,0,0.12)'}}>
+          {/* Decorative border */}
+          <div className="absolute inset-0 rounded-2xl" style={{border:'4px solid transparent', borderImage:'linear-gradient(135deg, #FFB300, #1E88E5, #43A047, #FFB300) 1'}}></div>
+          <div className="absolute inset-[8px] rounded-xl" style={{border:'1.5px solid #e5e7eb'}}></div>
+          
+          {/* Corner ornaments */}
+          <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 rounded-tl-lg" style={{borderColor:'#FFB300'}}></div>
+          <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 rounded-tr-lg" style={{borderColor:'#1E88E5'}}></div>
+          <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 rounded-bl-lg" style={{borderColor:'#1E88E5'}}></div>
+          <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 rounded-br-lg" style={{borderColor:'#FFB300'}}></div>
+
+          <div className="relative px-6 sm:px-12 py-8 sm:py-12 text-center">
+            {/* Logo Chính Thức làm Ấn tín */}
+            <img src="images/logo-vmindsports.png" alt="Vmindsports Viet Nam" className="h-[90px] mx-auto mb-2 object-contain drop-shadow-md" />
+            
+            {/* Huy chương cho TẤT CẢ mọi người */}
+            <div className="text-5xl mb-4 drop-shadow-md bounce-in">🥇</div>
+
+            {/* Title */}
+            <h2 className="text-3xl sm:text-4xl font-black pb-4" style={{fontFamily:"'Space Grotesk',sans-serif", color:'#1a1a2e', lineHeight: '1.4'}}>{txt.title}</h2>
+            <div className="w-24 h-1 mx-auto mb-5" style={{background:'linear-gradient(90deg, #FFB300, #1E88E5)'}}></div>
+            
+            {/* Certify */}
+            <p className="text-gray-400 text-sm mb-2">{txt.certify}</p>
+            
+            {/* Student Name */}
+            <h3 className="text-2xl sm:text-3xl font-black tracking-wide my-3" style={{color:'#1a1a2e', letterSpacing:'0.05em'}}>{userName.toUpperCase()}</h3>
+            
+            <p className="text-gray-400 text-sm mb-4">{txt.completed}</p>
+            
+            {/* Course Name */}
+            <h4 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1">{txt.course}</h4>
+            <p className="text-gray-400 text-xs mb-3">{txt.subtitle}</p>
+            
+            {/* Track */}
+            <p className="text-gray-600 text-sm mb-6">{txt.track}: {trackIcon} <strong>{trackName}</strong></p>
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-6 max-w-[200px] mx-auto mb-6">
+              <div className="text-center py-3 px-2 rounded-xl" style={{background:'linear-gradient(135deg, #fff8e1, #ffffff)'}}>
+                <div className="text-3xl font-black text-bee-600">{completedCount}</div>
+                <div className="text-xs text-gray-400 mt-1">{txt.reviews}</div>
+              </div>
+              <div className="text-center py-3 px-2 rounded-xl" style={{background:'linear-gradient(135deg, #e3f2fd, #ffffff)'}}>
+                <div className="text-3xl font-black text-ocean-600">{completedCount}</div>
+                <div className="text-xs text-gray-400 mt-1">{txt.challenges}</div>
+              </div>
+            </div>
+            
+            {/* Divider */}
+            <div className="w-32 h-px bg-gray-200 mx-auto mb-5"></div>
+            
+            {/* Signature */}
+            <div className="mb-4">
+              <div className="text-3xl mb-1" style={{fontFamily:"'Dancing Script',cursive", color:'#333'}}>Tran Kim Hieu</div>
+              <div className="w-36 h-px mx-auto mb-1" style={{background:'linear-gradient(90deg, transparent, #ccc, transparent)'}}></div>
+              <p className="text-xs text-gray-400">{txt.instructor}</p>
+              <p className="text-xs text-gray-400 mt-0.5">{txt.role}</p>
+            </div>
+            
+            {/* Date */}
+            <p className="text-gray-400 text-sm">{txt.date}</p>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mt-5 no-print">
+          <Button size="lg" onClick={()=>window.print()}>
+            {txt.print}
+          </Button>
+          <Button size="lg" variant="success" onClick={handleDownload}>
+            {txt.download}
+          </Button>
+          <Button variant="outline" onClick={onBack}>
+            {txt.back}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// GOOGLE SHEETS WEBHOOK
+// ============================================================
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzFXNuehBg-s27NvBKN-hJ8nga9fHR6dWAAst4nv9edFdfts4cNKVuR2DbfG7tIDtuI/exec';
+
+function sendToSheets(data) {
+  if (!SHEETS_URL) return;
+  try {
+    fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {});
+  } catch(e) {}
+}
+
+// ============================================================
+// MAIN APP
+// ============================================================
+function App() {
+  const [screen, setScreen] = useState('loading');
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [level, setLevel] = useState(null);
+  const [activeModule, setActiveModule] = useState(null);
+  const [progress, setProgress] = useState({});
+  const [sfxOn, setSfxOn] = useState(true);
+  const [registeredAt, setRegisteredAt] = useState(null);
+  const [urlParams, setUrlParams] = useState({name:'', email:''});
+
+  // Load saved state OR read URL params
+  useEffect(() => {
+    // 1. Kiểm tra localStorage (người học quay lại)
+    const saved = localStorage.getItem('mm-checkpoint');
+    if (saved) {
+      try {
+        const d = JSON.parse(saved);
+        if(d.userName) {
+          setUserName(d.userName); setUserEmail(d.email||''); setLevel(d.level);
+          setProgress(d.progress||{}); setRegisteredAt(d.registeredAt||null);
+          setScreen('dashboard');
+          return;
+        }
+      } catch(e) {}
+    }
+
+    // 2. Đọc URL params (từ LadiPage gửi qua email)
+    const params = new URLSearchParams(window.location.search);
+    const pName = params.get('name') || '';
+    const pEmail = params.get('email') || '';
+    setUrlParams({name: pName, email: pEmail});
+
+    if (pName && pEmail) {
+      // Đủ thông tin → tự động đăng ký và vào luôn
+      const now = new Date().toISOString();
+      setUserName(pName); setUserEmail(pEmail); setRegisteredAt(now);
+      const state = { userName: pName, email: pEmail, level: null, progress: {}, registeredAt: now };
+      localStorage.setItem('mm-checkpoint', JSON.stringify(state));
+      sendToSheets({ action: 'REGISTERED', name: pName, email: pEmail, timestamp: now });
+      setScreen('onboarding');
+    } else if (pName || pEmail) {
+      // Có 1 trong 2 → hiện form bù thông tin
+      setScreen('register');
+    } else {
+      // Không có gì → chặn, yêu cầu đăng ký qua LadiPage
+      setScreen('gate');
+    }
+  }, []);
+
+  // Save state
+  const saveState = (updates={}) => {
+    const state = { userName: updates.userName||userName, email: updates.email||userEmail, level: updates.level||level, progress: updates.progress||progress, registeredAt: updates.registeredAt||registeredAt };
+    localStorage.setItem('mm-checkpoint', JSON.stringify(state));
+  };
+
+  const handleRegister = (name, email) => {
+    const now = new Date().toISOString();
+    setUserName(name); setUserEmail(email); setRegisteredAt(now);
+    saveState({userName:name, email, registeredAt:now});
+    sendToSheets({ action: 'REGISTERED', name, email, timestamp: now });
+    setScreen('onboarding');
+  };
+
+  const handleLevel = (lv) => {
+    setLevel(lv); saveState({level:lv}); setScreen('dashboard');
+    sendToSheets({ action: 'SELECTED_LEVEL', name: userName, email: userEmail, level: lv });
+  };
+
+  const handleUpdateProgress = (p) => {
+    setProgress(p); saveState({progress:p});
+    // Gửi webhook khi hoàn thành 1 bài mới
+    const justDone = MODULES.find(m => p[m.id]?.done && (!progress[m.id]?.done));
+    if (justDone) {
+      sendToSheets({ action: 'COMPLETED_MODULE', name: userName, email: userEmail, moduleId: justDone.id, moduleTitle: justDone.title, score: p[justDone.id]?.assessment });
+    }
+  };
+
+  const handleViewCertificate = () => {
+    const avgScore = Math.round(MODULES.reduce((a,m)=>a+(progress[m.id]?.assessment||0),0)/MODULES.length);
+    sendToSheets({ action: 'COMPLETED_ALL', name: userName, email: userEmail, avgScore, level, timestamp: new Date().toISOString() });
+    setScreen('certificate');
+  };
+
+  if(screen==='loading') return <div className="min-h-screen fun-bg flex items-center justify-center"><div className="text-4xl float">🐝</div></div>;
+  if(screen==='gate') return <GateScreen />;
+  if(screen==='register') return <Registration onSubmit={handleRegister} defaultName={urlParams.name} defaultEmail={urlParams.email} />;
+  if(screen==='onboarding') return <Onboarding userName={userName} onSelect={handleLevel} />;
+  if(screen==='certificate') return <Certificate userName={userName} level={level} progress={progress} registeredAt={registeredAt} onBack={()=>setScreen('dashboard')} />;
+  if(screen==='module' && activeModule) return <LessonView moduleId={activeModule} level={level} progress={progress} onBack={()=>{setActiveModule(null);setScreen('dashboard');}} onUpdateProgress={handleUpdateProgress} />;
+
+  return (
+    <>
+      <Dashboard progress={progress} onSelectModule={(id)=>{setActiveModule(id);setScreen('module');}} onCertificate={handleViewCertificate} />
+      {/* Sound toggle */}
+      <button onClick={()=>{const on=SoundManager.toggleSfx();setSfxOn(on);}} className="fixed bottom-4 right-4 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-lg no-print hover:scale-110 transition">{sfxOn?'🔊':'🔇'}</button>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
