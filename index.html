@@ -93,7 +93,7 @@ const MODULES = [
     id:1, title:'Mind Map là gì?', subtitle:'Từ ghi chép truyền thống đến tư duy tỏa tia',
     icon:'🔭', duration:'12 phút', color:'bee',
     content: {
-      imageUrl: 'images/MM_Loi_ich_doc_sach.png',
+      imageUrl: 'MM_Loi_ich_doc_sach.png',
       intro: "Vmindsports rất trân trọng chào đón các anh chị chuyên gia. Anh chị có để ý rằng não bộ con người hoạt động theo dạng tỏa tia thay vì đường thẳng không? Khi nghe từ \"Quả táo\", ta liên tưởng ngay đến màu đỏ, vị ngọt hay sức khỏe.\n\nMind Map (Bản đồ Tư duy) được phát triển dựa trên chính cơ chế tự nhiên này. Thay vì ghi chép theo các dòng kẻ từ trên xuống, Mind Map cho phép anh chị tổ chức thông tin theo một mạng lưới sinh động, giúp bộ não làm việc trong trạng thái thoải mái và hiệu quả triệt để.",
       keyPoints: [
         { title:'Ghi chép truyền thống và Tư duy tỏa tia', text:'Cách ghi chép quen thuộc (dùng số 1, 2, 3) chủ yếu sử dụng bán cầu não trái. Mind Map tích hợp tuyệt vời cả hai bán cầu: não trái xử lý logic, não phải cảm thụ màu sắc và không gian, giúp khả năng lưu trữ thông tin tăng lên đáng kể.' },
@@ -132,7 +132,7 @@ const MODULES = [
     id:2, title:'Nền Tảng 5 Luật Chuẩn', subtitle:'Quy tắc thiết kế bản đồ tư duy',
     icon:'📏', duration:'15 phút', color:'ocean',
     content: {
-      imageUrl: 'images/MM_5_luat.png',
+      imageUrl: 'MM_5_luat.png',
       intro: "Mind Map mang đến sự tự do sáng tạo, nhưng để đạt được độ chuẩn hóa cao và phát huy tối đa sức mạnh ghi nhớ, việc tuân thủ 5 Luật cốt lõi là vô cùng cần thiết. Mỗi quy tắc đều được Tony Buzan xây dựng dựa trên sự thấu hiểu sâu sắc về cách thức thu nạp của não bộ.\n\nVmindsports tin rằng, khi các anh chị chuyên gia nắm vững 5 chìa khóa này, mọi bản thảo chiến lược hay bài học phức tạp đều sẽ trở nên sắc bén và minh bạch.",
       keyPoints: [
         { title:'Quy tắc 1: NHÁNH TỎA', text:'• Nhánh chính (chạm hình trung tâm) cần có phần gốc dày và thon dần về ngọn, mềm mại như sừng trâu\n• Chiều dài của nhánh nên vừa vặn với độ dài của từ khóa\n• Mỗi nhánh chính ẩn chứa những nét hoa văn tinh tế cùng tông màu\n• Luôn xuất phát nhánh đầu tiên từ vị trí 1 giờ\n• Tính kết nối là liên tục, không có nhánh đứt gãy' },
@@ -301,13 +301,13 @@ function GateScreen() {
   return (
     <div className="min-h-screen fun-bg flex items-center justify-center p-4">
       <div className="max-w-md w-full fade-in text-center">
-        <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
+        <img src="logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
         <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-2">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
         <p className="text-gray-500 text-sm mb-6">Chuẩn Tony Buzan · Vmindsports</p>
         <div className="glow-border"><div className="bg-white rounded-xl p-6 sm:p-8">
           <div className="text-5xl mb-4">🔐</div>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">Chào mừng Anh/Chị đã đến ứng dụng ôn tập.<br/>Xin vui lòng đăng ký trước khi học.</h2>
-          <p className="text-gray-500 text-sm mb-6">Để lưu tiến độ và cấp chứng chỉ, Anh/Chị vui lòng đăng ký qua trang chính thức. Sau đó link đặc quyền truy cập sẽ gửi tự động qua Email.</p>
+          <h2 className="text-xl font-bold text-gray-800 mb-4">Chào mừng Anh/Chị đến với Không gian Ôn tập</h2>
+          <p className="text-gray-500 text-sm mb-6">Hệ thống cần xác thực danh tính để thiết lập tiến độ và cấp chứng chỉ cá nhân hóa. Vui lòng nhận quyền truy cập qua cổng thông tin chính thức.</p>
           <a href={LADIPAGE_URL} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="w-full pulse-glow">Đăng ký ngay →</Button>
           </a>
@@ -331,7 +331,7 @@ function Registration({ onSubmit, defaultName, defaultEmail }) {
     <div className="min-h-screen fun-bg flex items-center justify-center p-4">
       <div className="max-w-md w-full fade-in">
         <div className="text-center mb-6">
-          <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
+          <img src="logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-1">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
           <p className="text-gray-500 text-sm">Xác nhận thông tin của bạn</p>
         </div>
@@ -388,7 +388,7 @@ function Dashboard({ progress, onSelectModule, onCertificate, userName, onEditNa
     <div className="min-h-screen fun-bg p-4 pb-20">
       <div className="max-w-lg mx-auto fade-in">
         <div className="text-center mb-4 pt-1">
-          <img src="images/logo-vmindsports.png" alt="" className="w-20 h-20 mx-auto mb-1 drop-shadow-sm" />
+          <img src="logo-vmindsports.png" alt="" className="w-20 h-20 mx-auto mb-1 drop-shadow-sm" />
           <h1 className="text-2xl font-black text-gray-900">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
           <p className="text-sm text-gray-500">Chuẩn Tony Buzan · Vmindsports</p>
           {/* Hiển thị tên + nút sửa */}
@@ -778,7 +778,7 @@ function Certificate({ userName, level, progress, registeredAt, onBack }) {
 
           <div className="relative px-6 sm:px-12 py-8 sm:py-12 text-center">
             {/* Logo Chính Thức làm Ấn tín */}
-            <img src="images/logo-vmindsports.png" alt="Vmindsports Viet Nam" className="h-[90px] mx-auto mb-2 object-contain drop-shadow-md" />
+            <img src="logo-vmindsports.png" alt="Vmindsports Viet Nam" className="h-[90px] mx-auto mb-2 object-contain drop-shadow-md" />
             
             {/* Huy chương cho TẤT CẢ mọi người */}
             <div className="text-5xl mb-4 drop-shadow-md bounce-in">🥇</div>
