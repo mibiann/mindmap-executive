@@ -90,198 +90,267 @@ const LEVELS = [
 
 const MODULES = [
   {
-    id:1, title:'Mind Map là gì?', subtitle:'Từ ghi chép truyền thống đến tư duy tỏa tia',
-    icon:'🔭', duration:'12 phút', color:'bee',
+    id: 1, title: 'Mind Map Là Gì?', subtitle: 'Từ ghi chép truyền thống đến tư duy tỏa tia',
+    icon: '🧠', duration: '10 phút', color: 'bee',
     content: {
-      imageUrl: 'MM_Loi_ich_doc_sach.png',
-      intro: "Vmindsports rất trân trọng chào đón các anh chị chuyên gia. Anh chị có để ý rằng não bộ con người hoạt động theo dạng tỏa tia thay vì đường thẳng không? Khi nghe từ \"Quả táo\", ta liên tưởng ngay đến màu đỏ, vị ngọt hay sức khỏe.\n\nMind Map (Bản đồ Tư duy) được phát triển dựa trên chính cơ chế tự nhiên này. Thay vì ghi chép theo các dòng kẻ từ trên xuống, Mind Map cho phép anh chị tổ chức thông tin theo một mạng lưới sinh động, giúp bộ não làm việc trong trạng thái thoải mái và hiệu quả triệt để.",
+      imageUrl: 'MM_truyen_thong.png',
+      intro: "Chào mừng Anh/Chị đến với Không gian Ôn tập Đặc quyền.
+
+Ở góc độ chuyên môn, Anh/Chị có để ý rằng: Não bộ chúng ta hầu như không bao giờ tư duy theo một đường thẳng tuyến tính? Đứng trước một 'Vấn đề', bạn ấy sẽ ngay lập tức phóng chiếu ra hàng chục giải pháp, nguồn lực và hệ quả đan xen lẫn nhau.
+
+Mind Map (Sơ đồ Tư duy) được khai sinh dựa trên chính cơ chế 'tỏa tia' tự nhiên đó. Thay vì giam cầm những chiến lược phức tạp vào các gạch đầu dòng từ trên xuống dưới, công cụ này trao cho Anh/Chị quyền năng hệ thống hóa hàng núi thông tin thành một mạng lưới kết nối một cách sinh động. Kết quả là, bộ não được phép vận hành ở công suất tối đa nhưng trong một trạng thái hoàn toàn thư thái và minh triết.",
       keyPoints: [
-        { title:'Ghi chép truyền thống và Tư duy tỏa tia', text:'Cách ghi chép quen thuộc (dùng số 1, 2, 3) chủ yếu sử dụng bán cầu não trái. Mind Map tích hợp tuyệt vời cả hai bán cầu: não trái xử lý logic, não phải cảm thụ màu sắc và không gian, giúp khả năng lưu trữ thông tin tăng lên đáng kể.' },
-        { title:'Nền tảng chuẩn quốc tế', text:'Được Tony Buzan đúc kết từ những năm 1970, Mind Map hiện là công cụ tư duy của hơn 250 triệu người mang lại năng suất đột phá. Vmindsports vô cùng tự hào khi đồng hành cùng anh chị áp dụng những bộ quy chuẩn khắt khe nhất của Thể thao Tư duy.' },
-        { title:'Ứng dụng cho công việc chuyên môn', text:'1. HỆ THỐNG HÓA: Sắp xếp hồ sơ thân chủ, tài liệu nghiên cứu\n2. CHIẾN LƯỢC: Lên kế hoạch dự án, phân bổ KPI\n3. PHÂN TÍCH: Bóc tách nguyên nhân và định hướng giải pháp\n4. ĐÀO TẠO: Thiết kế giáo trình dễ hiểu và truyền cảm hứng\n5. THUYẾT TRÌNH: Báo cáo cô đọng trên một trang duy nhất' },
+        { title: 'Ghi chép truyền thống và Sơ đồ tư duy', text: 'Cách ghi chép quen thuộc (liệt kê, hoặc đánh dấu số 1, 2, 3, …) chủ yếu sử dụng bán cầu não trái. Sơ đồ tư duy tích hợp tuyệt vời cả hai bán cầu: não trái xử lý logic, não phải cảm thụ màu sắc và không gian, giúp khả năng lưu trữ thông tin tăng lên đáng kể.' },
+        { title: 'Nền tảng chuẩn quốc tế', text: 'Mind map được Tony Buzan hệ thống hóa và phổ biến từ đầu thập niên 1970. Đây là một công cụ trực quan hỗ trợ ghi nhớ, tổ chức ý tưởng và tư duy. Vmindsports vô cùng tự hào khi đồng hành cùng anh chị áp dụng những quy luật hiệu quả của sơ đồ tư duy chuẩn theo Tony Buzan.' },
+        { title: 'Ứng dụng cho công việc chuyên môn', text: '1. HỆ THỐNG HÓA: Sắp xếp hồ sơ, tài liệu nghiên cứu, ...
+2. CHIẾN LƯỢC: Lên kế hoạch dự án, phân bổ KPI, ...
+3. PHÂN TÍCH: Bóc tách nguyên nhân và định hướng giải pháp, ...
+4. ĐÀO TẠO: Thiết kế giáo trình dễ hiểu và truyền cảm hứng, ...
+5. THUYẾT TRÌNH: Bài báo cáo được cô đọng trên một trang duy nhất, ...' }
       ],
       levelExamples: {
-        beginner:'Hãy thử thay thế danh sách 10 việc cần làm hôm nay bằng một hình vẽ ở giữa và các nhánh tỏa ra xung quanh. Anh chị sẽ thấy bộ não ghi nhận thông tin nhanh hơn rất nhiều.',
-        intermediate:'Nếu anh chị đã vẽ Mind Map, việc tuân thủ 5 Luật chuẩn quốc tế mà Vmindsports sắp chia sẻ sẽ giúp anh chị tối ưu hóa công cụ này, tránh tình trạng rối mắt khi lượng thông tin quá lớn.',
-        advanced:'Ở góc độ chuyên gia, anh chị có thể dùng Mind Map trực tiếp trên bảng trắng để dẫn dắt một phiên họp nhóm. Dòng chảy ý tưởng của mọi người sẽ được cấu trúc hóa ngay lập tức.',
-      },
+        beginner: 'Hãy thử thay thế danh sách 6 việc cần làm hôm nay bằng một hình vẽ ở giữa và các nhánh tỏa ra xung quanh. Anh chị sẽ thấy bộ não ghi nhận thông tin nhanh hơn rất nhiều.',
+        intermediate: 'Anh chị hãy thử lập một Sơ đồ tư duy cho chủ đề đang cần, kết hợp 5 Luật chuẩn mà Vmindsports chia sẻ. Điều này sẽ giúp tối ưu hóa công cụ và tránh tình trạng rối mắt khi lượng thông tin quá lớn.',
+        advanced: 'Ở góc độ chuyên gia, anh chị có thể dùng Mind Map trực tiếp trên bảng trắng để dẫn dắt một phiên họp nhóm. Dòng chảy ý tưởng của mọi người sẽ được cấu trúc hóa ngay lập tức.'
+      }
     },
     exercise: {
-      type:'identify-system',
-      title:'Phân biệt: Tuyến tính hay Mind Map?',
-      instructions:'Mời anh chị phân loại các cách tiếp cận sau đây thuộc nhóm Ghi chép Tuyến tính hay Tư duy Mind Map.',
+      type: 'identify-system', 
+      title: 'Phân biệt Ghi chép tuyến tính hay Sơ đồ tư duy Mind Map?',
+      instructions: 'Mời anh chị phân loại các cách tiếp cận sau:',
       items: [
-        { id:'e1', text:'Viết dàn ý I. A. B. theo thứ tự từ trên xuống', answer:'linear' },
-        { id:'e2', text:'Đặt chủ đề ở không gian trung tâm, tỏa nhánh ra xung quanh', answer:'mindmap' },
-        { id:'e3', text:'Ghi chú theo dòng đơn thuần với một màu mực', answer:'linear' },
-        { id:'e4', text:'Sử dụng linh hoạt màu sắc và từ khóa mấu chốt', answer:'mindmap' },
-        { id:'e5', text:'Khai triển thông tin theo chiều kim đồng hồ tự nhiên', answer:'mindmap' },
-        { id:'e6', text:'Cố gắng viết những câu rất dài để không sót ý', answer:'linear' },
-      ],
+        { id: 'i1', text: 'Viết dàn ý I. A. B. theo thứ tự từ trên xuống', answer: 'linear' },
+        { id: 'i2', text: 'Đặt chủ đề ở không gian trung tâm, tỏa nhánh ra xung quanh', answer: 'mindmap' },
+        { id: 'i3', text: 'Ghi chú theo dòng đơn thuần với một màu mực', answer: 'linear' },
+        { id: 'i4', text: 'Sử dụng linh hoạt màu sắc và từ khóa mấu chốt', answer: 'mindmap' },
+        { id: 'i5', text: 'Khai triển thông tin theo chiều kim đồng hồ tự nhiên', answer: 'mindmap' },
+        { id: 'i6', text: 'Cố gắng viết những câu rất dài để không sót ý', answer: 'linear' }
+      ]
     },
     assessment: {
-      title:'Thử thách: Nền tảng Mind Map',
+      title: 'Thử thách: Nền tảng Mind Map',
       questions: [
-        { q:'Yếu tố nào giúp Mind Map kích hoạt não bộ toàn diện hơn?', opts:['Sự kết hợp hài hòa giữa hình ảnh, màu sắc và từ khóa ngắn gọn','Sử dụng giấy khổ lớn để viết được nhiều chữ hơn','Lược bỏ hoàn toàn chữ viết, chỉ dùng ký hiệu','Giới hạn số lượng ý tưởng trên một trang'], correct:0 },
-        { q:'Đâu KHÔNG phải là thế mạnh hệ thống của Mind Map?', opts:['Sắp xếp chiến lược dài hạn','Ghi chép sổ kế toán thu chi chi tiết hàng ngày','Tóm tắt nội dung một cuốn sách dày','Động não tìm giải pháp cho tổ chức'], correct:1 },
-        { q:'Điểm tinh túy nhất của Mind Map chuẩn là:', opts:['Hệ thống hóa thông tin theo dạng lưới tỏa ra từ hình ảnh trung tâm','Quy định sử dụng các loại bút màu đắt tiền','Chỉ ứng dụng cho học sinh, sinh viên ôn tập','Vẽ các đường nhánh thẳng tắp như thước kẻ'], correct:0 },
-      ],
-    },
+        { q: 'Điều gì khiến Mind Map vượt trội hơn ghi chép truyền thống trong việc ghi nhớ?', opts: ['Kích hoạt đồng thời cả hai bán cầu não thông qua hình ảnh, màu sắc và từ khóa', 'Giúp ghi chép được nhiều thông tin hơn trên cùng một trang giấy', 'Thay thế hoàn toàn việc đọc lại tài liệu gốc', 'Rút ngắn thời gian viết nhờ bỏ bớt nội dung chi tiết'], correct: 0 },
+        { q: 'Trong công việc chuyên môn, Mind Map phát huy sức mạnh lớn nhất khi:', opts: ['Ghi chép biên bản họp nguyên văn từng câu nói', 'Bóc tách một vấn đề phức tạp thành các nhánh nguyên nhân và giải pháp', 'Lập bảng tính ngân sách chi tiết theo từng hàng cột', 'Soạn hợp đồng pháp lý cần độ chính xác từng chữ'], correct: 1 },
+        { q: 'Đặc trưng cốt lõi phân biệt Mind Map chuẩn với sơ đồ thông thường là:', opts: ['Sử dụng càng nhiều nhánh phụ càng tốt để bao quát mọi chi tiết', 'Bắt buộc phải vẽ tay, không được dùng phần mềm', 'Thông tin tỏa ra từ hình ảnh trung tâm, kết hợp từ khóa cô đọng trên nhánh cong tự nhiên', 'Trình bày nội dung theo thứ tự ưu tiên từ trên xuống dưới'], correct: 2 }
+      ]
+    }
   },
   {
-    id:2, title:'Nền Tảng 5 Luật Chuẩn', subtitle:'Quy tắc thiết kế bản đồ tư duy',
-    icon:'📏', duration:'15 phút', color:'ocean',
+    id: 2, title: 'Nền Tảng 5 Luật Chuẩn', subtitle: 'Quy tắc thiết kế bản đồ tư duy',
+    icon: '📏', duration: '15 phút', color: 'ocean',
     content: {
       imageUrl: 'MM_5_luat.png',
-      intro: "Mind Map mang đến sự tự do sáng tạo, nhưng để đạt được độ chuẩn hóa cao và phát huy tối đa sức mạnh ghi nhớ, việc tuân thủ 5 Luật cốt lõi là vô cùng cần thiết. Mỗi quy tắc đều được Tony Buzan xây dựng dựa trên sự thấu hiểu sâu sắc về cách thức thu nạp của não bộ.\n\nVmindsports tin rằng, khi các anh chị chuyên gia nắm vững 5 chìa khóa này, mọi bản thảo chiến lược hay bài học phức tạp đều sẽ trở nên sắc bén và minh bạch.",
+      intro: "Mind Map mang đến sự tự do sáng tạo, nhưng để đạt được độ chuẩn hóa cao và phát huy tối đa sức mạnh ghi nhớ, việc tuân thủ 5 Luật cốt lõi là vô cùng cần thiết. Mỗi quy tắc đều được Tony Buzan xây dựng dựa trên sự thấu hiểu sâu sắc về cách thức thu nạp của não bộ.
+
+Vmindsports tin rằng, khi các anh chị chuyên gia nắm vững 5 chìa khóa này, mọi bản thảo chiến lược hay bài học phức tạp đều sẽ trở nên sắc bén và minh bạch.",
       keyPoints: [
-        { title:'Quy tắc 1: NHÁNH TỎA', text:'• Nhánh chính (chạm hình trung tâm) cần có phần gốc dày và thon dần về ngọn, mềm mại như sừng trâu\n• Chiều dài của nhánh nên vừa vặn với độ dài của từ khóa\n• Mỗi nhánh chính ẩn chứa những nét hoa văn tinh tế cùng tông màu\n• Luôn xuất phát nhánh đầu tiên từ vị trí 1 giờ\n• Tính kết nối là liên tục, không có nhánh đứt gãy' },
-        { title:'Quy tắc 2: TỪ KHÓA MẤU CHỐT', text:'• Tối ưu nhất: Mỗi nhánh duy nhất 1 từ khóa (tránh viết câu dài)\n• Đề xuất VIẾT IN HOA để não bộ bắt nét chữ rõ ràng nhất\n• Cấp độ từ khóa giảm dần kích thước: nhánh chính to nhất, các nhánh phụ nhỏ hơn\n• Từ khóa và icon minh họa luôn được nâng đỡ bởi đường nhánh, không lơ lửng' },
-        { title:'Quy tắc 3: SẮC THÁI MÀU', text:'• Hình trung tâm phối hợp từ 4 màu sắc trở lên để khơi gợi thị giác\n• Toàn bộ một cung nhánh (viền, hoa văn, nhánh phụ, từ khóa) duy trì sự đồng nhất về tông màu\n• Sắp xếp màu sắc luân phiên giữa tông Nóng (Đỏ, Cam, Hồng) và Lạnh (Xanh lá, Xanh dương, Tím)' },
-        { title:'Quy tắc 4: HÌNH ẢNH TRỰC QUAN', text:'• Hình trung tâm là linh hồn, cần giàu tính biểu tượng, hạn chế tối đa việc lồng ghép chữ\n• Những icon nhỏ minh họa trên từ khóa giúp kích thích trí liên tưởng\n• Vmindsports luôn khuyến khích anh chị thả lỏng tay để vẽ một cách vui tươi nhất' },
-        { title:'Quy tắc 5: BỐ CỤC KHÔNG GIAN', text:'• Triển khai các nhánh theo chiều kim đồng hồ mang lại cảm giác xuôi chiều tự nhiên\n• Phân bổ không gian cân bằng trên trang giấy\n• Mũi tên nét đứt dùng để kết nối các thông tin có liên quan ở các nhánh khác nhau' },
+        { title: 'Quy tắc 1: NHÁNH TỎA', text: '• Nhánh chính (chạm hình trung tâm) cần có phần gốc dày và thon dần về ngọn, mềm mại như sừng trâu
+• Chiều dài của nhánh nên vừa vặn với độ dài của từ khóa
+• Mỗi nhánh chính ẩn chứa những nét hoa văn tinh tế cùng tông màu
+• Luôn xuất phát nhánh đầu tiên từ vị trí 1 giờ
+• Tính kết nối là liên tục, không có nhánh đứt gãy' },
+        { title: 'Quy tắc 2: TỪ KHÓA MẤU CHỐT', text: '• Tối ưu nhất: Mỗi nhánh duy nhất 1 từ khóa (tránh viết câu dài)
+• Đề xuất VIẾT IN HOA để não bộ bắt nét chữ rõ ràng nhất
+• Cấp độ từ khóa giảm dần kích thước: nhánh chính to nhất, các nhánh phụ nhỏ hơn
+• Từ khóa và icon minh họa luôn được nâng đỡ bởi đường nhánh, không lơ lửng' },
+        { title: 'Quy tắc 3: SẮC THÁI MÀU', text: '• Hình trung tâm phối hợp từ 4 màu sắc trở lên để khơi gợi thị giác
+• Toàn bộ một cung nhánh (viền, hoa văn, nhánh phụ, từ khóa) duy trì sự đồng nhất về tông màu
+• Sắp xếp màu sắc luân phiên giữa tông Nóng (Đỏ, Cam, Hồng) và Lạnh (Xanh lá, Xanh dương, Tím)' },
+        { title: 'Quy tắc 4: HÌNH ẢNH TRỰC QUAN', text: '• Hình trung tâm là linh hồn, cần giàu tính biểu tượng, hạn chế tối đa việc lồng ghép chữ
+• Những icon nhỏ minh họa trên từ khóa giúp kích thích trí liên tưởng
+• Vmindsports luôn khuyến khích anh chị thả lỏng tay để vẽ một cách vui tươi nhất' },
+        { title: 'Quy tắc 5: BỐ CỤC KHÔNG GIAN', text: '• Triển khai các nhánh theo chiều kim đồng hồ mang lại cảm giác xuôi chiều tự nhiên
+• Phân bổ không gian cân bằng trên trang giấy
+• Mũi tên nét đứt dùng để kết nối các thông tin có liên quan ở các nhánh khác nhau' }
       ],
       levelExamples: {
-        beginner:'Với các anh chị mới, Vmindsports gợi ý hãy thả lỏng và tập trung vào 3 điều cơ bản: Hình trung tâm rực rỡ, Nhánh cong tự nhiên, và Từ khóa viết in hoa.',
-        intermediate:'Để nâng tầm chuẩn hóa, anh chị hãy lưu tâm thêm việc đặt từ khóa và hình ảnh nằm vững vàng trên nhánh (không để lơ lửng), cũng như bổ sung hoa văn cho nhánh chính.',
-        advanced:'Sự khác biệt của một chuyên gia nằm ở tư duy cốt lõi về sự liên kết. Việc tạo ra các mũi tên kết nối chéo giữa các nhánh giúp nhìn thấu những mối quan hệ logic ẩn sâu trong toàn bộ kế hoạch.',
-      },
+        beginner: 'Với các anh chị mới, Vmindsports gợi ý hãy thả lỏng và tập trung vào 3 điều cơ bản: Hình trung tâm rực rỡ, Nhánh cong tự nhiên, và Từ khóa viết in hoa.',
+        intermediate: 'Để nâng tầm chuẩn hóa, anh chị hãy lưu tâm thêm việc đặt từ khóa và hình ảnh nằm vững vàng trên nhánh (không để lơ lửng), cũng như bổ sung hoa văn cho nhánh chính.',
+        advanced: 'Sự khác biệt của một chuyên gia nằm ở tư duy cốt lõi về sự liên kết. Việc tạo ra các mũi tên kết nối chéo giữa các nhánh giúp nhìn thấu những mối quan hệ logic ẩn sâu trong toàn bộ kế hoạch.'
+      }
     },
     exercise: {
-      type:'identify-system',
-      title:'Đánh giá theo chuẩn Quốc tế',
-      instructions:'Anh chị đánh giá các thao tác sau là ĐÚNG hay SAI so với tiêu chuẩn Mind Map.',
+      type: 'identify-system',
+      title: 'Đánh giá ĐÚNG / SAI',
+      instructions: 'Anh chị đánh giá các thao tác sau là ĐÚNG hay SAI so với tiêu chuẩn Mind Map.',
       items: [
-        { id:'r1', text:'Viết cả câu dài trên một đường nhánh duy nhất', answer:'sai' },
-        { id:'r2', text:'Nhánh chính cong thon tự nhiên, bên trong có hoa văn cùng tông màu', answer:'dung' },
-        { id:'r3', text:'Chỉ viết chữ làm hình trung tâm thay vì dùng hình vẽ minh họa', answer:'sai' },
-        { id:'r4', text:'Từ khóa in hoa nằm trên nhánh, biểu tượng có nét kẻ nâng đỡ', answer:'dung' },
-        { id:'r5', text:'Tất cả các nhánh trên bản vẽ đều dùng chung một màu mực xanh', answer:'sai' },
-        { id:'r6', text:'Nhánh đầu tiên khởi đầu ở góc 1 giờ, xoay theo vòng kim đồng hồ', answer:'dung' },
-        { id:'r7', text:'Kẻ các nhánh bằng thước cho thật thẳng và vuông góc', answer:'sai' },
-        { id:'r8', text:'Sử dụng màu xen kẽ Nóng và Lạnh cho các nhánh liền kề', answer:'dung' },
-      ],
+        { id: 'r1', text: 'Viết cả câu dài trên một đường nhánh duy nhất', answer: 'sai' },
+        { id: 'r2', text: 'Nhánh chính cong thon tự nhiên, bên trong có hoa văn cùng tông màu', answer: 'dung' },
+        { id: 'r3', text: 'Chỉ viết chữ làm hình trung tâm thay vì dùng hình vẽ minh họa', answer: 'sai' },
+        { id: 'r4', text: 'Từ khóa in hoa nằm trên nhánh, biểu tượng có nét kẻ nâng đỡ', answer: 'dung' },
+        { id: 'r5', text: 'Tất cả các nhánh trên bản vẽ đều dùng chung một màu mực xanh', answer: 'sai' },
+        { id: 'r6', text: 'Nhánh đầu tiên khởi đầu ở góc 1 giờ, xoay theo vòng kim đồng hồ', answer: 'dung' },
+        { id: 'r7', text: 'Kẻ các nhánh bằng thước cho thật thẳng và vuông góc', answer: 'sai' },
+        { id: 'r8', text: 'Sử dụng màu xen kẽ Nóng và Lạnh cho các nhánh liền kề', answer: 'dung' }
+      ]
     },
     assessment: {
-      title:'Thử thách: Am hiểu 5 Luật',
+      title: 'Thử thách: Am hiểu 5 Luật',
       questions: [
-        { q:'Theo tiêu chuẩn Vmindsports, nhánh chính cần thể hiện thế nào mới đạt?', opts:['Thẳng hàng như sơ đồ cây thông thường','Gốc dày chạm tâm, thuôn dần về ngọn với nét cong tự nhiên','Đường kẻ thanh mảnh y hệt các nhánh phụ','Vẽ theo những nét đứt quãng'], correct:1 },
-        { q:'Để tối ưu hình trung tâm (khổ giấy A3), anh chị nên:', opts:['Viết tên tiêu đề rõ to lên giữa trang','Sáng tạo một hình ảnh 4 màu trở lên và hạn chế dùng chữ','Chỉ dùng một vòng tròn màu đen đơn giản','Đảm bảo hình ảnh phải cực kỳ chân thực như chụp ảnh'], correct:1 },
-        { q:'Yêu cầu tối quan trọng khi đặt Hình ảnh minh họa (Icon) là gì?', opts:['Phải vẽ phức tạp mất nhiều thời gian','Luôn được nâng đỡ bởi nét nhánh, tuyệt đối không lơ lửng ngoài không gian','Chỉ cắt dán từ báo chí, không được vẽ tay','Kích thước phải lớn hơn hình trung tâm'], correct:1 },
-      ],
-    },
+        { q: 'Theo tiêu chuẩn Vmindsports, nhánh chính cần thể hiện thế nào mới đạt?', opts: ['Thẳng hàng như sơ đồ cây thông thường', 'Gốc dày chạm tâm, thuôn dần về ngọn với nét cong tự nhiên', 'Đường kẻ thanh mảnh y hệt các nhánh phụ', 'Vẽ theo những nét đứt quãng'], correct: 1 },
+        { q: 'Để tối ưu hình trung tâm (khổ giấy A3), anh chị nên:', opts: ['Viết tên tiêu đề rõ to lên giữa trang', 'Sáng tạo một hình ảnh 4 màu trở lên và hạn chế dùng chữ', 'Chỉ dùng một vòng tròn màu đen đơn giản', 'Đảm bảo hình ảnh phải cực kỳ chân thực như chụp ảnh'], correct: 1 },
+        { q: 'Yêu cầu tối quan trọng khi đặt Hình ảnh minh họa (Icon) là gì?', opts: ['Phải vẽ phức tạp mất nhiều thời gian', 'Luôn được nâng đỡ bởi nét nhánh, tuyệt đối không lơ lửng ngoài không gian', 'Chỉ cắt dán từ báo chí, không được vẽ tay', 'Kích thước phải lớn hơn hình trung tâm'], correct: 1 }
+      ]
+    }
   },
   {
-    id:3, title:'Nghệ Thuật Hình Trung Tâm', subtitle:'Khai mở tư duy từ tâm điểm',
-    icon:'🎨', duration:'15 phút', color:'bee',
+    id: 3, title: 'Nghệ Thuật Hình Trung Tâm', subtitle: 'Khai mở tư duy từ tâm điểm',
+    icon: '🎨', duration: '15 phút', color: 'bee',
     content: {
-      intro: "Hình trung tâm và nhánh chính chính là chiếc chìa khóa vàng mở ra toàn bộ sức sống cho Mind Map. Vmindsports tin rằng, một hình ảnh trung tâm vui tươi, giàu sức gợi sẽ truyền cảm hứng làm việc cho anh chị ngay lập tức.\n\nThay vì lo lắng mình không rành hội họa, hãy xem mỗi nét vẽ là một trò chơi thị giác thú vị giúp não bộ sạc đầy năng lượng tích cực.",
+      intro: "Hình trung tâm và nhánh chính chính là chiếc chìa khóa vàng mở ra toàn bộ sức sống cho Mind Map. Vmindsports tin rằng, một hình ảnh trung tâm vui tươi, giàu sức gợi sẽ truyền cảm hứng làm việc cho anh chị ngay lập tức.
+
+Thay vì lo lắng mình không rành hội họa, hãy xem mỗi nét vẽ là một trò chơi thị giác thú vị giúp não bộ sạc đầy năng lượng tích cực.",
       keyPoints: [
-        { title:'Hình trung tâm: Trái tim của bài trình bày', text:'• Đặt ngay ngắn chính giữa trang giấy định dạng ngang (Landscape)\n• Kích thước tỷ lệ chuẩn: khoanh vùng khoảng 9.5cm cho giấy A3\n• Tự tin phối trộn từ 4 màu sắc trở lên\n• Dùng biểu tượng thay lời muốn nói (Ví dụ: Kế hoạch kinh doanh vẽ hình chiếc khiên và cánh chim)\n• Hãy để sự vui tươi kích hoạt sự liên tưởng không giới hạn' },
-        { title:'Nhánh cong: Phương thức kết nối tự nhiên', text:'• Gốc nhánh tỏa ra trực tiếp và tiếp xúc khít với hình trung tâm\n• Đường cong uốn lượn uyển chuyển mô phỏng các cấu trúc trong thiên nhiên\n• Tông màu dịu nhẹ tô đầy phần thân nhánh\n• Thêm thắt hoa văn họa tiết bên trong để thể hiện cá tính riêng của người vẽ' },
-        { title:'Nguyên lý dải màu hài hòa', text:'Bố trí chuỗi màu sắc luân phiên để chống nhàm chán thị giác:\n\n🔴 Nhánh 1 (1h): Sắc Đỏ (Tông Nóng)\n🔵 Nhánh 2 (3h): Xanh dương (Tông Lạnh)\n🟠 Nhánh 3 (5h): Cam ấm (Tông Nóng)\n🟢 Nhánh 4 (7h): Xanh lá (Tông Lạnh)\n🟤 Nhánh 5 (10h): Nâu (Tông Nóng)\n🟣 Nhánh 6 (11h): Tím (Tông Lạnh)\n\nỨng dụng màu sắc tinh tế làm bản phân tích của anh chị thêm phần đẳng cấp và dễ nhìn.' },
+        { title: 'Hình trung tâm: Trái tim của bài trình bày', text: '• Đặt ngay ngắn chính giữa trang giấy định dạng ngang (Landscape)
+• Kích thước tỷ lệ chuẩn: khoanh vùng khoảng 9.5cm cho giấy A3
+• Tự tin phối trộn từ 4 màu sắc trở lên
+• Dùng biểu tượng thay lời muốn nói (Ví dụ: Kế hoạch kinh doanh vẽ hình chiếc khiên và cánh chim)
+• Hãy để sự vui tươi kích hoạt sự liên tưởng không giới hạn' },
+        { title: 'Nhánh cong: Phương thức kết nối tự nhiên', text: '• Gốc nhánh tỏa ra trực tiếp và tiếp xúc khít với hình trung tâm
+• Đường cong uốn lượn uyển chuyển mô phỏng các cấu trúc trong thiên nhiên
+• Tông màu dịu nhẹ tô đầy phần thân nhánh
+• Thêm thắt hoa văn họa tiết bên trong để thể hiện cá tính riêng của người vẽ' },
+        { title: 'Nguyên lý dải màu hài hòa', text: 'Bố trí chuỗi màu sắc luân phiên để chống nhàm chán thị giác:
+
+🔴 Nhánh 1 (1h): Sắc Đỏ (Tông Nóng)
+🔵 Nhánh 2 (3h): Xanh dương (Tông Lạnh)
+🟠 Nhánh 3 (5h): Cam ấm (Tông Nóng)
+🟢 Nhánh 4 (7h): Xanh lá (Tông Lạnh)
+🟤 Nhánh 5 (10h): Nâu (Tông Nóng)
+🟣 Nhánh 6 (11h): Tím (Tông Lạnh)
+
+Ứng dụng màu sắc tinh tế làm bản phân tích của anh chị thêm phần đẳng cấp và dễ nhìn.' }
       ],
       levelExamples: {
-        beginner:'Nếu anh chị thấy phân vân khi tạo hình trung tâm, hãy bắt đầu bằng một đám mây, một bông hoa, hoặc một cuốn sổ thật hồn nhiên. Não bộ rất thích sự giản dị và chân thành.',
-        intermediate:'Anh chị hãy kiểm tra lại cấu trúc: Phần gốc của nhánh chính đã thật sự chạm sát vào viền hình trung tâm chưa? Chút tỉ mỉ này làm tăng tính vững chãi cho toàn bố cục.',
-        advanced:'Đối với một bản báo cáo chuyên nghiệp, hoa văn bên trong nhánh chính có thể là những đường thiết kế hình học, hoặc các họa tiết hiện đại tối giản. Nó đóng vai trò như một chữ ký định hình phong thái lãnh đạo của anh chị.',
-      },
+        beginner: 'Nếu anh chị thấy phân vân khi tạo hình trung tâm, hãy bắt đầu bằng một đám mây, một bông hoa, hoặc một cuốn sổ thật hồn nhiên. Não bộ rất thích sự giản dị và chân thành.',
+        intermediate: 'Anh chị hãy kiểm tra lại cấu trúc: Phần gốc của nhánh chính đã thật sự chạm sát vào viền hình trung tâm chưa? Chút tỉ mỉ này làm tăng tính vững chãi cho toàn bố cục.',
+        advanced: 'Đối với một bản báo cáo chuyên nghiệp, hoa văn bên trong nhánh chính có thể là những đường thiết kế hình học, hoặc các họa tiết hiện đại tối giản. Nó đóng vai trò như một chữ ký định hình phong thái lãnh đạo của anh chị.'
+      }
     },
     exercise: {
-      type:'color-matching',
-      title:'Trải nghiệm Phối màu chuẩn',
-      instructions:'(Ví dụ nhánh đầu tiên hướng 1h anh chị đã tô màu 🔴 Đỏ - Tông Nóng). Dựa vào nguyên tắc luân phiên thay đổi Nóng/Lạnh, mời anh chị chọn màu chuẩn cho các nhánh tiếp theo.',
+      type: 'color-matching',
+      title: 'Phối màu chuẩn - Nóng/Lạnh luân phiên',
+      instructions: '(Ví dụ nhánh đầu tiên hướng 1h anh chị đã tô màu Đỏ - Tông Nóng). Dựa vào nguyên tắc luân phiên thay đổi Nóng/Lạnh, mời anh chị chọn màu chuẩn cho các nhánh tiếp theo.',
       items: [
-        { id:'c2', position:'Kế tiếp Nhánh 2 (Hướng 3h)', answer:'blue', options:['red','blue','brown','orange'] },
-        { id:'c3', position:'Phát triển Nhánh 3 (Hướng 5h)', answer:'orange', options:['green','blue','orange','purple'] },
-        { id:'c4', position:'Mở rộng Nhánh 4 (Hướng 7h)', answer:'green', options:['red','green','orange','brown'] },
-        { id:'c5', position:'Lan tỏa Nhánh 5 (Hướng 9-10h)', answer:'brown', options:['blue','green','brown','orange'] },
-      ],
+        { id: 'c2', position: 'Nhánh 2 (Hướng 3h)', answer: 'blue', options: ['red', 'blue', 'brown', 'orange'] },
+        { id: 'c3', position: 'Nhánh 3 (Hướng 5h)', answer: 'orange', options: ['green', 'blue', 'orange', 'purple'] },
+        { id: 'c4', position: 'Nhánh 4 (Hướng 7h)', answer: 'green', options: ['red', 'green', 'orange', 'brown'] },
+        { id: 'c5', position: 'Nhánh 5 (Hướng 9-10h)', answer: 'brown', options: ['blue', 'green', 'brown', 'orange'] }
+      ]
     },
     assessment: {
-      title:'Thử thách: Hình khối và Nét lượn',
+      title: 'Thử thách: Hình khối và Nét lượn',
       questions: [
-        { q:'Để tâm não có điểm tựa vững vàng, hình trung tâm cần:', opts:['Hạn chế màu sắc để giữ nét trang nghiêm','Thật sự là một hình vẽ sống động với ít nhất 4 hệ màu','Vẽ lệch sang cạnh trái khổ giấy','Chèn kín chữ cái để biểu đạt ý nghĩa'], correct:1 },
-        { q:'Sự khác biệt của nhánh Mind Map Vmindsports là:', opts:['Sử dụng hoàn toàn bằng đường thẳng để tạo khối chữ nhật','Nét uốn tự nhiên, thuôn nhọn thanh mảnh dần về ngọn','Vẽ thành hình dạng sắc cạnh','Càng xa trung tâm nhánh càng phình to ra'], correct:1 },
-        { q:'Sắp xếp luân phiên dải màu Nóng và Lạnh mang lại lợi ích gì?', opts:['Giúp kích thích sự tập trung và giảm thiểu sự đơn điệu, mệt mỏi cho thị giác','Phân loại cấp bậc từ cao xuống thấp của các phòng ban','Là yêu cầu bắt buộc vì hộp màu thường có số lượng bằng nhau','Chỉ mang mục đích làm bản vẽ sặc sỡ hơn'], correct:0 },
-      ],
-    },
+        { q: 'Để tâm não có điểm tựa vững vàng, hình trung tâm cần:', opts: ['Hạn chế màu sắc để giữ nét trang nghiêm', 'Thật sự là một hình vẽ sống động với ít nhất 4 hệ màu', 'Vẽ lệch sang cạnh trái khổ giấy', 'Chèn kín chữ cái để biểu đạt ý nghĩa'], correct: 1 },
+        { q: 'Sự khác biệt của nhánh Mind Map Vmindsports là:', opts: ['Sử dụng hoàn toàn bằng đường thẳng để tạo khối chữ nhật', 'Nét uốn tự nhiên, thuôn nhọn thanh mảnh dần về ngọn', 'Vẽ thành hình dạng sắc cạnh', 'Càng xa trung tâm nhánh càng phình to ra'], correct: 1 },
+        { q: 'Sắp xếp luân phiên dải màu Nóng và Lạnh mang lại lợi ích gì?', opts: ['Giúp kích thích sự tập trung và giảm thiểu sự đơn điệu, mệt mỏi cho thị giác', 'Phân loại cấp bậc từ cao xuống thấp của các phòng ban', 'Là yêu cầu bắt buộc vì hộp màu thường có số lượng bằng nhau', 'Chỉ mang mục đích làm bản vẽ sặc sỡ hơn'], correct: 0 }
+      ]
+    }
   },
   {
-    id:4, title:'Sức Mạnh Từ Khóa', subtitle:'Chắt lọc tinh hoa thông tin',
-    icon:'✍️', duration:'10 phút', color:'ocean',
+    id: 4, title: 'Sức Mạnh Từ Khóa', subtitle: 'Chắt lọc tinh hoa thông tin',
+    icon: '✍️', duration: '10 phút', color: 'ocean',
     content: {
-      intro: "Trong môi trường làm việc cường độ cao của anh chị, khả năng cô đọng thông tin là một kỹ năng đắt giá. Từ khóa trong Mind Map đóng vai trò như những chiếc mỏ neo nhỏ, giúp bảo lưu hàng vạn ý nghĩ phong phú của chúng ta.\n\nVmindsports luôn đồng hành để khuyến khích anh chị rèn luyện thói quen giữ lại duy nhất một từ khóa quan trọng cho mỗi nhánh. Khi chắt lọc được đúng điểm rơi ngôn ngữ, tốc độ tư duy và ra quyết định của anh chị sẽ được linh hoạt và toàn diện hơn.",
+      intro: "Trong môi trường làm việc cường độ cao của anh chị, khả năng cô đọng thông tin là một kỹ năng đắt giá. Từ khóa trong Mind Map đóng vai trò như những chiếc mỏ neo nhỏ, giúp bảo lưu hàng vạn ý nghĩ phong phú của chúng ta.
+
+Vmindsports luôn đồng hành để khuyến khích anh chị rèn luyện thói quen giữ lại duy nhất một từ khóa quan trọng cho mỗi nhánh. Khi chắt lọc được đúng điểm rơi ngôn ngữ, tốc độ tư duy và ra quyết định của anh chị sẽ được linh hoạt và toàn diện hơn.",
       keyPoints: [
-        { title:'Sức bật phi thường của sự cô đọng', text:'Một câu phân tích rất dài chỉ ép bộ não vào trạng thái tiếp nhận thụ động. Nhưng nếu chỉ giữ lại từ "TỐI ƯU", tâm não lập tức đặt câu hỏi phân tích: Tối ưu điều gì? Ai tham gia? Khi nào thực hiện? Đó mới đích thực là khởi nguồn sáng tạo.' },
-        { title:'Tuyệt kỹ tìm từ mấu chốt', text:'• Hãy triệt để ưu tiên những Động từ thực thi hoặc Danh từ trung tâm\n• Gói gọn nhẹ nhàng từ 1 đến 3 chữ (Ví dụ: CHIẾN LƯỢC, ĐỒNG HÀNH)\n• Cấu trúc viết IN HOA tôn lên sự minh bạch và tác phong chuyên nghiệp\n• Tinh giản các trạng từ, giới từ không sinh giá trị quyết định' },
-        { title:'Phát triển hệ sinh thái nhánh phụ', text:'• Nhánh phụ là những nét kẻ thanh thoát (không cần cấu trúc sừng trâu)\n• Duy trì sắc độ màu biểu trưng của nhánh chính để cố kết hệ thống\n• Thể hiện nét chữ với kích thước tinh tế, thu nhỏ dần theo hệ bậc\n• Gấp khúc dịu dàng như sự vươn dài tự nhiên của cành cây gõ cửa tương lai' },
-        { title:'Thổi hồn vào bản vẽ', text:'• Một biểu tượng đồ họa (icon) chứa sức mạnh truyền tải thông điệp rất lớn\n• Ghi chú quan trọng: Hãy nhẹ nhàng đặt icon trên một đường nét đệm mỏng\n• Xây dựng đường đứt đoạn (liên kết chéo) tinh tế nối liền các mạch ý tưởng có tính tương hỗ chiến lược' },
+        { title: 'Sức bật phi thường của sự cô đọng', text: 'Một câu phân tích rất dài chỉ ép bộ não vào trạng thái tiếp nhận thụ động. Nhưng nếu chỉ giữ lại từ "TỐI ƯU", tâm não lập tức đặt câu hỏi phân tích: Tối ưu điều gì? Ai tham gia? Khi nào thực hiện? Đó mới đích thực là khởi nguồn sáng tạo.' },
+        { title: 'Tuyệt kỹ tìm từ mấu chốt', text: '• Hãy triệt để ưu tiên những Động từ thực thi hoặc Danh từ trung tâm
+• Gói gọn nhẹ nhàng từ 1 đến 3 chữ (Ví dụ: CHIẾN LƯỢC, ĐỒNG HÀNH)
+• Cấu trúc viết IN HOA tôn lên sự minh bạch và tác phong chuyên nghiệp
+• Tinh giản các trạng từ, giới từ không sinh giá trị quyết định' },
+        { title: 'Phát triển hệ sinh thái nhánh phụ', text: '• Nhánh phụ là những nét kẻ thanh thoát (không cần cấu trúc sừng trâu)
+• Duy trì sắc độ màu biểu trưng của nhánh chính để cố kết hệ thống
+• Thể hiện nét chữ với kích thước tinh tế, thu nhỏ dần theo hệ bậc
+• Gấp khúc dịu dàng như sự vươn dài tự nhiên của cành cây gõ cửa tương lai' },
+        { title: 'Thổi hồn vào bản vẽ', text: '• Một biểu tượng đồ họa (icon) chứa sức mạnh truyền tải thông điệp rất lớn
+• Ghi chú quan trọng: Hãy nhẹ nhàng đặt icon trên một đường nét đệm mỏng
+• Xây dựng đường đứt đoạn (liên kết chéo) tinh tế nối liền các mạch ý tưởng có tính tương hỗ chiến lược' }
       ],
       levelExamples: {
-        beginner:'Một bài tập thật êm ái: Anh chị hãy bôi đậm đúng 5 từ tinh hoa nhất trong một email dài vừa nhận được. Sự lược giản đó chính là thao tác đầu tiên để tìm ra từ khóa nhánh.',
-        intermediate:'Nếu anh chị tình cờ nhận ra mình vừa viết cụm "Xây dựng dự án tháng sắp tới" lên nhánh. Đừng bận tâm, hãy nhẹ nhàng chẻ nó thành [DỰ ÁN] ở nhánh chủ lực, và rẽ nhánh [THÁNG MỚI] ở vùng nhánh chi tiết.',
-        advanced:'Với tầm ảnh hưởng của người lãnh đạo, hãy sử dụng từ khóa có khả năng chạm vào trái tim tự tin của tập thể. Việc thay đổi từ "NHIỆM VỤ" thành "SỨ MỆNH KHAI PHÓNG" sẽ tự khắc dịch chuyển bức tâm đồ năng lượng của cả bản Mind Map.',
-      },
+        beginner: 'Một bài tập thật êm ái: Anh chị hãy bôi đậm đúng 5 từ tinh hoa nhất trong một email dài vừa nhận được. Sự lược giản đó chính là thao tác đầu tiên để tìm ra từ khóa nhánh.',
+        intermediate: 'Nếu anh chị tình cờ nhận ra mình vừa viết cụm "Xây dựng dự án tháng sắp tới" lên nhánh. Đừng bận tâm, hãy nhẹ nhàng chẻ nó thành [DỰ ÁN] ở nhánh chủ lực, và rẽ nhánh [THÁNG MỚI] ở vùng nhánh chi tiết.',
+        advanced: 'Với tầm ảnh hưởng của người lãnh đạo, hãy sử dụng từ khóa có khả năng chạm vào trái tim tự tin của tập thể. Việc thay đổi từ "NHIỆM VỤ" thành "SỨ MỆNH KHAI PHÓNG" sẽ tự khắc dịch chuyển bức tâm đồ năng lượng của cả bản Mind Map.'
+      }
     },
     exercise: {
-      type:'keyword-extraction',
-      title:'Nghệ thuật chắt lọc ngôn từ',
-      instructions:'Mời anh chị tìm ra từ khóa kim cương cho từng nội dung nhánh, khởi nguồn từ đoạn văn mang tính định hướng sau đây.',
-      passage:'Với tầm nhìn hướng tới giáo dục khai phóng, CLB mong muốn trang bị cho học viên một tinh thần tự học mạnh mẽ, cùng thói quen đọc sách tích cực. Từ đó, xây dựng một hệ sinh thái gắn kết, thấu cảm và vững vàng tiếp bước tương lai.',
+      type: 'keyword-extraction',
+      title: 'Nghệ thuật chắt lọc ngôn từ',
+      instructions: 'Đoạn văn gốc: "Với tầm nhìn hướng tới giáo dục khai phóng, CLB mong muốn trang bị cho học viên một tinh thần tự học mạnh mẽ, cùng thói quen đọc sách tích cực. Từ đó, xây dựng một hệ sinh thái gắn kết, thấu cảm và vững vàng tiếp bước tương lai."
+
+Mời anh chị tìm ra từ khóa kim cương cho từng nội dung nhánh, khởi nguồn từ đoạn văn mang tính định hướng trên.',
+      passage: 'Với tầm nhìn hướng tới giáo dục khai phóng, CLB mong muốn trang bị cho học viên một tinh thần tự học mạnh mẽ, cùng thói quen đọc sách tích cực. Từ đó, xây dựng một hệ sinh thái gắn kết, thấu cảm và vững vàng tiếp bước tương lai.',
       items: [
-        { id:'k1', branch:'Nhánh cốt lõi (Tầm nhìn)', correct:'KHAI PHÓNG', options:['HƯỚNG TỚI','VỚI TẦM NHÌN','KHAI PHÓNG','GIÁO DỤC'] },
-        { id:'k2', branch:'Nhánh phụ 1 (Trang bị)', correct:'TỰ HỌC', options:['TINH THẦN','TỰ HỌC','HỌC VIÊN','CHO TƯƠNG LAI'] },
-        { id:'k3', branch:'Nhánh phụ 2 (Thói quen)', correct:'ĐỌC SÁCH', options:['ĐỌC SÁCH TÍCH CỰC','ĐỌC SÁCH','THÓI QUEN','MONG MUỐN'] },
-        { id:'k4', branch:'Nhánh phụ 3 (Hệ sinh thái)', correct:'THẤU CẢM', options:['THẤU CẢM','XÂY DỰNG','HỆ SINH THÁI','TIẾP BƯỚC'] },
-      ],
+        { id: 'k1', branch: 'Nhánh cốt lõi (Tầm nhìn)', correct: 'KHAI PHÓNG', options: ['HƯỚNG TỚI', 'VỚI TẦM NHÌN', 'KHAI PHÓNG', 'GIÁO DỤC'] },
+        { id: 'k2', branch: 'Nhánh phụ 1 (Trang bị)', correct: 'TỰ HỌC', options: ['TINH THẦN', 'TỰ HỌC', 'HỌC VIÊN', 'CHO TƯƠNG LAI'] },
+        { id: 'k3', branch: 'Nhánh phụ 2 (Thói quen)', correct: 'ĐỌC SÁCH', options: ['ĐỌC SÁCH TÍCH CỰC', 'ĐỌC SÁCH', 'THÓI QUEN', 'MONG MUỐN'] },
+        { id: 'k4', branch: 'Nhánh phụ 3 (Hệ sinh thái)', correct: 'THẤU CẢM', options: ['THẤU CẢM', 'XÂY DỰNG', 'HỆ SINH THÁI', 'TIẾP BƯỚC'] }
+      ]
     },
     assessment: {
-      title:'Thử thách: Bậc thầy Ngôn từ',
+      title: 'Thử thách: Bậc thầy Ngôn từ',
       questions: [
-        { q:'Tuân thủ tiêu chuẩn "Duy nhất một từ khóa trên mỗi nhánh" mang lại trải nghiệm ưu việt nào?', opts:['Giúp bản vẽ lấp được nhiều khoảng trống để tiết kiệm giấy','Tạo ra khoảng thở không gian để vẫy gọi luồng liên tưởng tự do của trí não','Đây thuần túy là quy định hội họa cho đẹp mắt','Làm cho bộ vi mô của bài viết có phần trang trọng hơn'], correct:1 },
-        { q:'Đặc tính chuẩn xác của nhánh phụ bao gồm:', opts:['Nhánh phụ cũng được đặc tả nét dày đậm như nhánh trung tâm','Kẻ thành những hệ khung đường viền bao quanh','Là cầu nối đường nét thanh mảnh, hòa chung dải màu với nhánh chính','Làm mờ để biểu đạt tính nhún nhường trong cấu trúc'], correct:2 },
-        { q:'Lựa chọn Từ Khóa mang sức thuyết phục cao nhất rơi vào nhóm nền tảng từ loại nào?', opts:['Các tính từ, trạng ngữ phụ họa lặp lại','Danh Từ danh giá hoặc Động Từ mang sung lực thông điệp lớn nhất','Cứ chọn một cụm từ thật dài cho rõ nghĩa','Những cụm từ chỉ đơn vị đong đếm'], correct:1 },
-      ],
-    },
+        { q: 'Tuân thủ tiêu chuẩn "Duy nhất một từ khóa trên mỗi nhánh" mang lại trải nghiệm ưu việt nào?', opts: ['Giúp bản vẽ lấp được nhiều khoảng trống để tiết kiệm giấy', 'Tạo ra khoảng thở không gian để vẫy gọi luồng liên tưởng tự do của trí não', 'Đây thuần túy là quy định hội họa cho đẹp mắt', 'Làm cho bộ vi mô của bài viết có phần trang trọng hơn'], correct: 1 },
+        { q: 'Đặc tính chuẩn xác của nhánh phụ bao gồm:', opts: ['Nhánh phụ cũng được đặc tả nét dày đậm như nhánh trung tâm', 'Kẻ thành những hệ khung đường viền bao quanh', 'Là cầu nối đường nét thanh mảnh, hòa chung dải màu với nhánh chính', 'Làm mờ để biểu đạt tính nhún nhường trong cấu trúc'], correct: 2 },
+        { q: 'Lựa chọn Từ Khóa mang sức thuyết phục cao nhất rơi vào nhóm nền tảng từ loại nào?', opts: ['Các tính từ, trạng ngữ phụ họa lặp lại', 'Danh Từ danh giá hoặc Động Từ mang sung lực thông điệp lớn nhất', 'Cứ chọn một cụm từ thật dài cho rõ nghĩa', 'Những cụm từ chỉ đơn vị đong đếm'], correct: 1 }
+      ]
+    }
   },
   {
-    id:5, title:'Ứng Dụng Chuyên Sâu', subtitle:'Tối ưu hóa năng suất lãnh đạo',
-    icon:'🚀', duration:'15 phút', color:'bee',
+    id: 5, title: 'Ứng Dụng Chuyên Sâu', subtitle: 'Tối ưu hóa năng suất lãnh đạo',
+    icon: '🚀', duration: '15 phút', color: 'bee',
     content: {
-      intro: "Gửi lời chúc mừng ấm áp tới các anh chị khi đã sẵn sàng đồng tốc cùng chuẩn mực Thể thao Tư duy Quốc tế.\n\nNhìn từ góc độ cao tầng, Mind Map không chỉ là công cụ thu thập, mà đó thật sự là một tấm Bản Đồ Định Vị (Navigational Compass) cho đường hướng công việc. Thông qua những trải nghiệm chia sẻ sắp tới, Vmindsports mong muốn anh chị tiết kiệm được những giờ thảo luận căng thẳng, và vun bồi thêm nhiều năng lượng tĩnh tại.",
+      intro: "Gửi lời chúc mừng ấm áp tới các anh chị khi đã sẵn sàng đồng tốc cùng chuẩn mực Thể thao Tư duy Quốc tế.
+
+Nhìn từ góc độ cao tầng, Mind Map không chỉ là công cụ thu thập, mà đó thật sự là một tấm Bản Đồ Định Vị (Navigational Compass) cho đường hướng công việc. Thông qua những trải nghiệm chia sẻ sắp tới, Vmindsports mong muốn anh chị tiết kiệm được những giờ thảo luận căng thẳng, và vun bồi thêm nhiều năng lượng tĩnh tại.",
       keyPoints: [
-        { title:'Chủ tọa cuộc họp bằng Một trang (One-Page)', text:'1. Xác định trọn vẹn chủ đề và biểu đạt bằng Hình trung tâm tinh tế trước buổi làm việc\n2. Mỗi dòng thông điệp chiến lược của từng người tham dự ứng với một thân nhánh độc lập\n3. Lắng nghe và đính kết linh hồn ý tưởng vào hệ thống nhánh phụ\nSau những giây phút đàm thoại, biên bản thấu đáo nhất tự khắc tượng hình thay vì những email dài dòng.' },
-        { title:'Phá tảng băng quyết định', text:'Thay vì cố sức cân não:\n1. Gọi tên sự khó khăn ngay vào giữa vùng hội tụ\n2. Cổ vũ tập thể thoải mái tạo nhánh ý kiến, không phán xét, không rụt rè\n3. Sự minh bạch của bức tranh bao trùm sẽ tháo gỡ điểm mù, mở đường cho sự tối ưu lộ diện rạng rỡ nhất.' },
-        { title:'Dẫn dắt cảm hứng Đào tạo', text:'Mỗi một tấm hình Mind Map đủ năng lực hòa nhịp tương đương hàng mươi trang slide cứng nhắc. Bằng phong cách hướng dẫn vừa kết cấu vừa tự họa đường nét (Live-mapping), anh chị lật mở tư duy của mình, xóa tan rào cản phòng hội nghị và truyền nhiệt từ trái tim đến trái tim người nghe.' },
-        { title:'Trạm Kiểm Định Bản Thể (Gate Check)', text:'Xin mời anh chị thong dong nghiệm lại tác phẩm của bản thân:\n✅ Trung tâm đa sắc ngập tràn sức sống 4 màu sắc, tỏa nhánh thuận chiều tự nhiên?\n✅ Vị trí nhánh tiên phong đặt góc 1h?\n✅ Nhánh tỏa sừng trâu mượt mà, điểm tô hoa văn?\n✅ Từ khóa cô đọng, viết In Hoa kiêu hãnh trải dài không gian nhánh?\n✅ Sắc độ màu Nóng và Lạnh xen kẽ tương tấu?\n✅ Biểu tượng linh động có nét đệm an toàn tĩnh ngự?\n✅ Tạo lập tương tác chéo từ những đường liên kết?\nChỉ cần thấy bình yên và tâm đắc, anh chị đã là một chuyên gia lan tỏa cảm hứng!' },
+        { title: 'Chủ tọa cuộc họp bằng Một trang (One-Page)', text: '1. Xác định trọn vẹn chủ đề và biểu đạt bằng Hình trung tâm tinh tế trước buổi làm việc
+2. Mỗi dòng thông điệp chiến lược của từng người tham dự ứng với một thân nhánh độc lập
+3. Lắng nghe và đính kết linh hồn ý tưởng vào hệ thống nhánh phụ
+Sau những giây phút đàm thoại, biên bản thấu đáo nhất tự khắc tượng hình thay vì những email dài dòng.' },
+        { title: 'Phá tảng băng quyết định', text: 'Thay vì cố sức cân não:
+1. Gọi tên sự khó khăn ngay vào giữa vùng hội tụ
+2. Cổ vũ tập thể thoải mái tạo nhánh ý kiến, không phán xét, không rụt rè
+3. Sự minh bạch của bức tranh bao trùm sẽ tháo gỡ điểm mù, mở đường cho sự tối ưu lộ diện rạng rỡ nhất.' },
+        { title: 'Dẫn dắt cảm hứng Đào tạo', text: 'Mỗi một tấm hình Mind Map đủ năng lực hòa nhịp tương đương hàng mươi trang slide cứng nhắc. Bằng phong cách hướng dẫn vừa kết cấu vừa tự họa đường nét (Live-mapping), anh chị lật mở tư duy của mình, xóa tan rào cản phòng hội nghị và truyền nhiệt từ trái tim đến trái tim người nghe.' },
+        { title: 'Trạm Kiểm Định Bản Thể (Gate Check)', text: 'Xin mời anh chị thong dong nghiệm lại tác phẩm của bản thân:
+✅ Trung tâm đa sắc ngập tràn sức sống 4 màu sắc, tỏa nhánh thuận chiều tự nhiên?
+✅ Vị trí nhánh tiên phong đặt góc 1h?
+✅ Nhánh tỏa sừng trâu mượt mà, điểm tô hoa văn?
+✅ Từ khóa cô đọng, viết In Hoa kiêu hãnh trải dài không gian nhánh?
+✅ Sắc độ màu Nóng và Lạnh xen kẽ tương tấu?
+✅ Biểu tượng linh động có nét đệm an toàn tĩnh ngự?
+✅ Tạo lập tương tác chéo từ những đường liên kết?
+Chỉ cần thấy bình yên và tâm đắc, anh chị đã là một chuyên gia lan tỏa cảm hứng!' }
       ],
       levelExamples: {
-        beginner:'Tối nay, mong anh chị để cho mình một khoảng lặng trong trẻo, vẽ họa đồ về hành trình nhỏ cho tổ ấm gia đình cuối tuần. Hãy xếp gọn bộn bề để thưởng lãm từng đường nét lan tỏa.',
-        intermediate:'Mời anh chị tìm đọc một trang định hướng công việc đang ngổn ngang để chiêm nghiệm lại và hóa giải nó trên một mặt giấy tĩnh tại thông qua mã hiệu của Mind Map.',
-        advanced:'Bước chân tự tin: Một ngày không xa, tại sảnh đón hội nghị, anh chị cầm bút dứt khoát vạch những tia Mind Map rạng ngời lên Bảng Trắng, tựa như phong thái một đại sứ Vmindsports gieo vào tâm trí tổ chức dòng chảy của tương lai.',
-      },
+        beginner: 'Tối nay, mong anh chị để cho mình một khoảng lặng trong trẻo, vẽ họa đồ về hành trình nhỏ cho tổ ấm gia đình cuối tuần. Hãy xếp gọn bộn bề để thưởng lãm từng đường nét lan tỏa.',
+        intermediate: 'Mời anh chị tìm đọc một trang định hướng công việc đang ngổn ngang để chiêm nghiệm lại và hóa giải nó trên một mặt giấy tĩnh tại thông qua mã hiệu của Mind Map.',
+        advanced: 'Bước chân tự tin: Một ngày không xa, tại sảnh đón hội nghị, anh chị cầm bút dứt khoát vạch những tia Mind Map rạng ngời lên Bảng Trắng, tựa như phong thái một đại sứ Vmindsports gieo vào tâm trí tổ chức dòng chảy của tương lai.'
+      }
     },
     exercise: {
-      type:'application',
-      title:'Bước phát triển chuyên nghiệp mới',
-      instructions:'Mời anh chị khởi tạo kế hoạch thiết thực mang Mind Map chuyển hóa vào guồng xoay công việc.',
+      type: 'application',
+      title: 'Bước phát triển chuyên nghiệp mới',
+      instructions: 'Mời anh chị khởi tạo kế hoạch thiết thực mang Mind Map chuyển hóa vào guồng xoay công việc.',
       prompts: [
-        { id:'ap1', question:'Chủ đề đầu tay anh chị tâm đắc lựa chọn vẽ Mind Map ứng dụng là gì?', placeholder:'Ví dụ: "Chiến lược Phát triển Đội nhóm" hay "Tái định vị Thương hiệu"...' },
-        { id:'ap2', question:'Những tuyến nhánh trọng yếu anh chị định hình cấu trúc?', placeholder:'Ví dụ: "HƯỚNG TỚI, QUY TRÌNH, PHẢN HỒI, NHÂN LỰC, ĐÁNH GIÁ..."' },
-        { id:'ap3', question:'Cột mốc thi vị nào anh chị dành riêng trải nghiệm thực thi?', placeholder:'Ví dụ: "Sáng thứ Ba yên ả lúc 7h30, trước giờ vào việc..."' },
-        { id:'ap4', question:'Anh chị sẽ vững tâm đối chiếu cùng Trạm Kiểm Định (Gate Check) 17 điểm sáng chứ?', placeholder:'Ví dụ: "Chắc chắn rồi, đó là cách rèn giũa bản lĩnh tuyệt diệu nhất."' },
-      ],
+        { id: 'ap1', question: 'Chủ đề đầu tay anh chị tâm đắc lựa chọn vẽ Mind Map ứng dụng là gì?', placeholder: 'Ví dụ: "Chiến lược Phát triển Đội nhóm" hay "Tái định vị Thương hiệu"...' },
+        { id: 'ap2', question: 'Những tuyến nhánh trọng yếu anh chị định hình cấu trúc?', placeholder: 'Ví dụ: "HƯỚNG TỚI, QUY TRÌNH, PHẢN HỒI, NHÂN LỰC, ĐÁNH GIÁ..."' },
+        { id: 'ap3', question: 'Cột mốc thi vị nào anh chị dành riêng trải nghiệm thực thi?', placeholder: 'Ví dụ: "Sáng thứ Ba yên ả lúc 7h30, trước giờ vào việc..."' },
+        { id: 'ap4', question: 'Anh chị sẽ vững tâm đối chiếu cùng Trạm Kiểm Định (Gate Check) 17 điểm sáng chứ?', placeholder: 'Ví dụ: "Chắc chắn rồi, đó là cách rèn giũa bản lĩnh tuyệt diệu nhất."' }
+      ]
     },
     assessment: {
-      title:'Thử thách: Niềm tin và Hành động',
+      title: 'Thử thách: Niềm tin và Hành động',
       questions: [
-        { q:'Một tác phẩm Mind Map đẳng cấp định hướng Vmindsports khát khao truyền tải điều gì lớn nhất?', opts:['Cố gắng lấp đầy vô tận các chỗ trống bằng bút dạ quang rực rỡ ngẫu nhiên','Khơi mào một trung tâm đa sắc, nhánh sừng trâu khỏe khoắn tự do ươm mầm một từ khóa cô đọng In Hoa','Sự xếp đặt trình tự lề lối cứng ngắc y như hệ thống báo cáo văn bản','Hình thức cầu kì như tranh của danh họa'], correct:1 },
-        { q:'Rào cản tư duy hay bắt gặp làm mờ đi hiệu năng thực sự của Mind Map là việc:', opts:['Dành tâm huyết chọn lấy icon biểu thị ấn tượng','Trích chép thụ động nguyên mặt chữ dông dài vắt ngang dải nhánh quý giá','Liên kết những tầm nhìn rời rạc với nhau qua nét mực đứt quãng mỏng manh','Tìm kiếm nhiều dải màu sắc đa diện'], correct:1 },
-        { q:'Món quà giá trị nhất anh chị thụ đắc vượt qua khuôn khổ nhận thức chương trình này là gì?', opts:['Thích thú nhận được một ấn phẩm hình thức mạ vàng','Nắm rõ vẹn toàn những tinh hoa phương pháp, và vững vàng tích hợp Thể thao Tư duy vào đường đua chuyên môn','Chỉ để nhớ vài thông tin về lịch sử khai sinh Tony Buzan','Trở thành công cụ giải trí khi nhàn rỗi'], correct:1 },
-      ],
-    },
-  },
+        { q: 'Một tác phẩm Mind Map đẳng cấp định hướng Vmindsports khát khao truyền tải điều gì lớn nhất?', opts: ['Cố gắng lấp đầy vô tận các chỗ trống bằng bút dạ quang...', 'Khơi mào một trung tâm đa sắc, nhánh sừng trâu khỏe khoắn tự do ươm mầm một từ khóa cô đọng In Hoa', 'Sự xếp đặt trình tự lề lối cứng ngắc y như hệ thống báo cáo văn bản', 'Hình thức cầu kì như tranh của danh họa'], correct: 1 },
+        { q: 'Rào cản tư duy hay bắt gặp làm mờ đi hiệu năng thực sự của Mind Map là việc:', opts: ['Dành tâm huyết chọn lấy icon biểu thị ấn tượng', 'Trích chép thụ động nguyên mặt chữ dông dài vắt ngang dải nhánh quý giá', 'Liên kết những tầm nhìn rời rạc với nhau qua nét mực đứt quãng mỏng manh', 'Tìm kiếm nhiều dải màu sắc đa diện'], correct: 1 },
+        { q: 'Món quà giá trị nhất anh chị thụ đắc vượt qua khuôn khổ nhận thức chương trình này là gì?', opts: ['Thích thú nhận được một ấn phẩm hình thức mạ vàng', 'Nắm rõ vẹn toàn những tinh hoa phương pháp, và vững vàng tích hợp Thể thao Tư duy vào đường đua chuyên môn', 'Chỉ để nhớ vài thông tin về lịch sử khai sinh Tony Buzan', 'Trở thành công cụ giải trí khi nhàn rỗi'], correct: 1 }
+      ]
+    }
+  }
 ];
 // UI COMPONENTS
 // ============================================================
@@ -309,7 +378,7 @@ function GateScreen() {
           <h2 className="text-xl font-bold text-gray-800 mb-4">Chào mừng Anh/Chị đến với Không gian Ôn tập</h2>
           <p className="text-gray-500 text-sm mb-6">Hệ thống cần xác thực danh tính để thiết lập tiến độ và cấp chứng chỉ cá nhân hóa. Anh/Chị truy cập qua cổng thông tin đăng ký để nhận đặc quyền.</p>
           <a href={LADIPAGE_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="w-full pulse-glow">Đăng ký ngay →</Button>
+            <Button size="lg" className="w-full pulse-glow">Nhận quyền truy cập ngay →</Button>
           </a>
           <div className="mt-4 pt-4 border-t border-gray-100">
             <p className="text-xs text-gray-400">Anh/ Chị đã đăng ký rồi? Vui lòng bấm vào link trong Email nhé! 📧</p>
@@ -357,8 +426,9 @@ function Onboarding({ userName, onSelect }) {
     <div className="min-h-screen fun-bg flex items-center justify-center p-4">
       <div className="max-w-lg w-full fade-in">
         <div className="text-center mb-6">
+          <img src="logo-vmindsports.png" alt="Vmindsports" className="w-28 h-28 mx-auto mb-4 drop-shadow-md" />
           <h2 className="text-2xl font-black text-gray-900">Chào <span className="text-bee-600">{userName}</span>! 👋</h2>
-          <p className="text-gray-500 mt-1">Bạn dự định ứng dụng Mind Map Chuẩn vào lĩnh vực nào?</p>
+          <p className="text-gray-500 mt-1">Anh/Chị dự định ứng dụng Mind Map Chuẩn vào lĩnh vực nào?</p>
         </div>
         <div className="space-y-3">
           {LEVELS.map((lv,i) => (
@@ -388,7 +458,7 @@ function Dashboard({ progress, onSelectModule, onCertificate, userName, onEditNa
     <div className="min-h-screen fun-bg p-4 pb-20">
       <div className="max-w-lg mx-auto fade-in">
         <div className="text-center mb-4 pt-1">
-          <img src="logo-vmindsports.png" alt="" className="w-20 h-20 mx-auto mb-1 drop-shadow-sm" />
+          <img src="logo-vmindsports.png" alt="Vmindsports" className="w-28 h-28 mx-auto mb-2 drop-shadow-sm" />
           <h1 className="text-2xl font-black text-gray-900">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
           <p className="text-sm text-gray-500">Chuẩn Tony Buzan · Vmindsports</p>
           {/* Hiển thị tên + nút sửa */}
