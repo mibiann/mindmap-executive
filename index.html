@@ -93,7 +93,7 @@ const MODULES = [
     id: 1, title: 'Mind Map Là Gì?', subtitle: 'Từ ghi chép truyền thống đến tư duy tỏa tia',
     icon: '🧠', duration: '10 phút', color: 'bee',
     content: {
-      imageUrl: 'images/MM_Loi_ich_doc_sach.png',
+      imageUrl: './images/MM_Loi_ich_doc_sach.png',
       intro: "Chào mừng anh chị đến với không gian ôn tập!\n\nNão bộ chúng ta không tư duy theo đường thẳng. Đứng trước một vấn đề, não lập tức phóng chiếu ra nhiều hướng giải quyết đan xen lẫn nhau.\n\nMind Map (Sơ đồ Tư duy) được thiết kế dựa trên chính cơ chế 'tỏa tia' tự nhiên đó. Thay vì liệt kê từ trên xuống dưới, công cụ này giúp anh chị hệ thống hóa thông tin thành một mạng lưới kết nối sinh động — để bộ não vận hành ở công suất tối đa mà vẫn thư thái.",
       keyPoints: [
         { title: 'Ghi chép truyền thống và Sơ đồ tư duy', text: 'Cách ghi chép quen thuộc (liệt kê, hoặc đánh dấu số 1, 2, 3, …) chủ yếu sử dụng bán cầu não trái. Sơ đồ tư duy tích hợp tuyệt vời cả hai bán cầu: não trái xử lý logic, não phải cảm thụ màu sắc và không gian, giúp khả năng lưu trữ thông tin tăng lên đáng kể.' },
@@ -132,7 +132,7 @@ const MODULES = [
     id: 2, title: 'Nền Tảng 5 Luật Chuẩn', subtitle: 'Quy tắc thiết kế bản đồ tư duy',
     icon: '📏', duration: '15 phút', color: 'ocean',
     content: {
-      imageUrl: 'images/MM_5_luat.png',
+      imageUrl: './images/MM_5_luat.png',
       intro: "Mind Map mang đến sự tự do sáng tạo, nhưng để đạt chuẩn hóa cao, việc tuân thủ 5 Luật cốt lõi là vô cùng cần thiết. Mỗi quy tắc đều có chức năng kích hoạt trí nhớ riêng biệt, không chỉ đơn thuần là yêu cầu trình bày.\n\nVới 5 chìa khóa này, mọi bản phân tích phức tạp nhất của anh chị đều sẽ trở nên trực quan và bao quát.",
       keyPoints: [
         { title: 'Quy tắc 1: NHÁNH TỎA', text: '• Nhánh chính (chạm hình trung tâm) cần có phần gốc dày và thon dần về ngọn, mềm mại như sừng trâu\n• Chiều dài của nhánh nên vừa vặn với độ dài của từ khóa\n• Mỗi nhánh chính ẩn chứa những nét hoa văn tinh tế cùng tông màu\n• Luôn xuất phát nhánh đầu tiên từ vị trí 1 giờ\n• Tính kết nối là liên tục, không có nhánh đứt gãy' },
@@ -298,7 +298,7 @@ function GateScreen() {
   return (
     <div className="min-h-screen fun-bg flex items-center justify-center p-4">
       <div className="max-w-md w-full fade-in text-center">
-        <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
+        <img src="./images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
         <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-2">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
         <p className="text-gray-500 text-sm mb-6">Chuẩn Tony Buzan · Vmindsports</p>
         <div className="glow-border"><div className="bg-white rounded-xl p-6 sm:p-8">
@@ -328,7 +328,7 @@ function Registration({ onSubmit, defaultName, defaultEmail }) {
     <div className="min-h-screen fun-bg flex items-center justify-center p-4">
       <div className="max-w-md w-full fade-in">
         <div className="text-center mb-6">
-          <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
+          <img src="./images/logo-vmindsports.png" alt="Vmindsports" className="w-32 h-32 mx-auto mb-2 float drop-shadow-md" />
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-1">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
           <p className="text-gray-500 text-sm">Xác nhận thông tin của bạn</p>
         </div>
@@ -354,7 +354,7 @@ function Onboarding({ userName, onSelect }) {
     <div className="min-h-screen fun-bg flex items-center justify-center p-4">
       <div className="max-w-lg w-full fade-in">
         <div className="text-center mb-6">
-          <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-28 h-28 mx-auto mb-4 drop-shadow-md" />
+          <img src="./images/logo-vmindsports.png" alt="Vmindsports" className="w-28 h-28 mx-auto mb-4 drop-shadow-md" />
           <h2 className="text-2xl font-black text-gray-900">Chào <span className="text-bee-600">{userName}</span>! 👋</h2>
           <p className="text-gray-500 mt-1">Anh/Chị dự định ứng dụng Mind Map Chuẩn vào lĩnh vực nào?</p>
         </div>
@@ -386,7 +386,7 @@ function Dashboard({ progress, onSelectModule, onCertificate, userName, onEditNa
     <div className="min-h-screen fun-bg p-4 pb-20">
       <div className="max-w-lg mx-auto fade-in">
         <div className="text-center mb-4 pt-1">
-          <img src="images/logo-vmindsports.png" alt="Vmindsports" className="w-28 h-28 mx-auto mb-2 drop-shadow-sm" />
+          <img src="./images/logo-vmindsports.png" alt="Vmindsports" className="w-28 h-28 mx-auto mb-2 drop-shadow-sm" />
           <h1 className="text-2xl font-black text-gray-900">Ôn Tập Sơ Đồ Tư Duy Chuẩn</h1>
           <p className="text-sm text-gray-500">Chuẩn Tony Buzan · Vmindsports</p>
           {/* Hiển thị tên + nút sửa */}
@@ -781,7 +781,7 @@ function Certificate({ userName, level, progress, registeredAt, onBack }) {
 
           <div className="relative px-6 sm:px-14 py-10 sm:py-14 text-center">
             {/* Logo */}
-            <img src="images/logo-vmindsports.png" alt="Vmindsports Viet Nam" className="h-[110px] mx-auto mb-4 object-contain drop-shadow-md" />
+            <img src="./images/logo-vmindsports.png" alt="Vmindsports Viet Nam" className="h-[110px] mx-auto mb-4 object-contain drop-shadow-md" />
             
             {/* Medal */}
             <div className="text-5xl mb-5">🏅</div>
