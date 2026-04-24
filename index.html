@@ -782,57 +782,57 @@ function Certificate({ userName, level, progress, registeredAt, onBack }) {
           <div className="absolute bottom-5 left-5 w-12 h-12 border-b-2 border-l-2 rounded-bl-lg" style={{borderColor:'#1E88E5'}}></div>
           <div className="absolute bottom-5 right-5 w-12 h-12 border-b-2 border-r-2 rounded-br-lg" style={{borderColor:'#1E88E5'}}></div>
 
-          <div className="relative px-6 sm:px-14 py-10 sm:py-14 text-center">
+          <div className="relative px-5 sm:px-10 py-6 sm:py-8 text-center">
             {/* Logo */}
-            <img src="logo-vmindsports.png" alt="Vmindsports Viet Nam" className="h-[110px] mx-auto mb-4 object-contain drop-shadow-md" />
+            <img src="logo-vmindsports.png" alt="Vmindsports Viet Nam" className="h-[75px] sm:h-[90px] mx-auto mb-2 sm:mb-3 object-contain drop-shadow-md" />
             
             {/* Medal */}
-            <div className="text-5xl mb-5">🏅</div>
+            <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">🏅</div>
 
             {/* Title */}
-            <h2 className="text-3xl sm:text-4xl font-black pb-3" style={{color:'#2D3561', lineHeight:'1.3'}}>{txt.title}</h2>
-            <div className="w-32 h-[2px] mx-auto mb-6" style={{background:'linear-gradient(90deg, #E91E63, #7C4DFF, #2196F3)'}}></div>
+            <h2 className="text-2xl sm:text-3xl font-black pb-1 sm:pb-2" style={{color:'#2D3561', lineHeight:'1.2'}}>{txt.title}</h2>
+            <div className="w-24 sm:w-32 h-[2px] mx-auto mb-3 sm:mb-4" style={{background:'linear-gradient(90deg, #E91E63, #7C4DFF, #2196F3)'}}></div>
             
             {/* Certify */}
-            <p className="text-sm mb-2" style={{color:'#6B7280'}}>{txt.certify}</p>
+            <p className="text-xs sm:text-sm mb-1 sm:mb-2" style={{color:'#6B7280'}}>{txt.certify}</p>
             
             {/* Student Name */}
-            <h3 className="text-2xl sm:text-3xl font-black tracking-wide my-4" style={{color:'#1565C0', letterSpacing:'0.08em'}}>{userName.toUpperCase()}</h3>
+            <h3 className="text-xl sm:text-2xl font-black tracking-wide my-2 sm:my-3" style={{color:'#1565C0', letterSpacing:'0.05em'}}>{userName.toUpperCase()}</h3>
             
-            <p className="text-sm mb-5" style={{color:'#6B7280'}}>{txt.completed}</p>
+            <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{color:'#6B7280'}}>{txt.completed}</p>
             
             {/* Course Name */}
-            <h4 className="text-xl sm:text-2xl font-bold mb-2" style={{color:'#2D3561'}}>{txt.course}</h4>
-            {txt.subtitle && <p className="text-xs mb-3" style={{color:'#9CA3AF'}}>{txt.subtitle}</p>}
+            <h4 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2" style={{color:'#2D3561'}}>{txt.course}</h4>
+            {txt.subtitle && <p className="text-[10px] sm:text-xs mb-2" style={{color:'#9CA3AF'}}>{txt.subtitle}</p>}
             
             {/* Track */}
-            <p className="text-sm mb-7" style={{color:'#6B7280'}}>{txt.track}: {trackIcon} <strong style={{color:'#2D3561'}}>{trackName}</strong></p>
+            <p className="text-xs sm:text-sm mb-4 sm:mb-5" style={{color:'#6B7280'}}>{txt.track}: {trackIcon} <strong style={{color:'#2D3561'}}>{trackName}</strong></p>
             
             {/* Stats Grid - colored accents like reference */}
-            <div className="grid grid-cols-2 gap-6 max-w-[220px] mx-auto mb-7">
-              <div className="text-center py-3 px-3">
-                <div className="text-4xl font-black" style={{color:'#FFB300'}}>{completedCount}</div>
-                <div className="text-xs mt-1" style={{color:'#9CA3AF'}}>{txt.reviews}</div>
+            <div className="grid grid-cols-2 gap-4 max-w-[200px] mx-auto mb-4 sm:mb-5">
+              <div className="text-center py-1 sm:py-2 px-2">
+                <div className="text-3xl sm:text-4xl font-black" style={{color:'#FFB300'}}>{completedCount}</div>
+                <div className="text-[10px] sm:text-xs mt-0.5 sm:mt-1" style={{color:'#9CA3AF'}}>{txt.reviews}</div>
               </div>
-              <div className="text-center py-3 px-3" style={{borderLeft:'1px solid #e5e7eb'}}>
-                <div className="text-4xl font-black" style={{color:'#1E88E5'}}>{completedCount}</div>
-                <div className="text-xs mt-1" style={{color:'#9CA3AF'}}>{txt.challenges}</div>
+              <div className="text-center py-1 sm:py-2 px-2" style={{borderLeft:'1px solid #e5e7eb'}}>
+                <div className="text-3xl sm:text-4xl font-black" style={{color:'#1E88E5'}}>{completedCount}</div>
+                <div className="text-[10px] sm:text-xs mt-0.5 sm:mt-1" style={{color:'#9CA3AF'}}>{txt.challenges}</div>
               </div>
             </div>
             
             {/* Simple Divider */}
-            <div className="w-32 h-px mx-auto mb-6" style={{background:'linear-gradient(90deg, transparent, #d1d5db, transparent)'}}></div>
+            <div className="w-24 sm:w-32 h-px mx-auto mb-3 sm:mb-4" style={{background:'linear-gradient(90deg, transparent, #d1d5db, transparent)'}}></div>
             
             {/* Signature */}
-            <div className="mb-5">
-              <div className="text-3xl mb-1" style={{fontFamily:"'Dancing Script',cursive", color:'#2D3561'}}>Tran Kim Hieu</div>
-              <div className="w-40 h-px mx-auto mb-1.5" style={{background:'linear-gradient(90deg, transparent, #d1d5db, transparent)'}}></div>
-              <p className="text-xs" style={{color:'#9CA3AF'}}>{txt.instructor}</p>
-              <p className="text-xs mt-0.5" style={{color:'#9CA3AF'}}>{txt.role}</p>
+            <div className="mb-3 sm:mb-4">
+              <div className="text-2xl sm:text-3xl mb-0.5 sm:mb-1" style={{fontFamily:"'Dancing Script',cursive", color:'#2D3561'}}>Tran Kim Hieu</div>
+              <div className="w-32 sm:w-40 h-px mx-auto mb-1" style={{background:'linear-gradient(90deg, transparent, #d1d5db, transparent)'}}></div>
+              <p className="text-[10px] sm:text-xs" style={{color:'#9CA3AF'}}>{txt.instructor}</p>
+              <p className="text-[10px] sm:text-xs mt-0.5" style={{color:'#9CA3AF'}}>{txt.role}</p>
             </div>
             
             {/* Date */}
-            <p className="text-sm" style={{color:'#6B7280'}}>{txt.date}</p>
+            <p className="text-[10px] sm:text-xs" style={{color:'#6B7280'}}>{txt.date}</p>
           </div>
         </div>
 
