@@ -902,8 +902,9 @@ function App() {
 
     // 2. Đọc URL params (từ LadiPage gửi qua email)
     const params = new URLSearchParams(window.location.search);
-    const pName = params.get('name') || '';
-    const pEmail = params.get('email') || '';
+    const cleanParam = (v) => (v && /\{\{.*\}\}|\*\|.*\|\*/.test(v)) ? '' : (v || '');
+    const pName = cleanParam(params.get('name'));
+    const pEmail = cleanParam(params.get('email'));
     setUrlParams({name: pName, email: pEmail});
 
     if (pName && pEmail) {
